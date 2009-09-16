@@ -1,0 +1,25 @@
+Source: bison
+Section: devel
+Priority: optional
+Maintainer: Chuan-kai Lin <cklin@debian.org>
+Homepage: http://www.gnu.org/software/bison/
+Standards-Version: 3.8.3.0
+Build-Depends: debhelper (>= 7), gettext, m4 (>= 1.4-14), autotools-dev, cdbs
+
+Package: bison
+Section: devel
+Priority: optional
+Architecture: any
+Depends: m4, ${shlibs:Depends}, ${misc:Depends}
+Suggests: bison-doc
+Description: A parser generator that is compatible with YACC
+ Bison is a general-purpose parser generator that converts a
+ grammar description for an LALR(1) context-free grammar into a C
+ program to parse that grammar.  Once you are proficient with Bison, you
+ may use it to develop a wide range of language parsers, from those used
+ in simple desk calculators to complex programming languages.
+ .
+ Bison is upward compatible with Yacc: all properly-written Yacc
+ grammars ought to work with Bison with no change.  Anyone familiar with
+ Yacc should be able to use Bison with little trouble.  Documentation of
+ the program is in the bison-doc package.
