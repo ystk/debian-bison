@@ -1,3 +1,30 @@
+bison (1:2.5.dfsg-2.1) unstable; urgency=low
+
+  * Non-maintainer upload.
+  * Add "Conflicts: liby-dev (= 1:2.5.dfsg-1)" to libbison-dev to ensure
+    that this version that should never have existed gets dropped from
+    user's systems. Closes: #645038
+
+ -- Raphaël Hertzog <hertzog@debian.org>  Fri, 25 Nov 2011 11:35:14 +0100
+
+bison (1:2.5.dfsg-2) unstable; urgency=low
+
+  * Rename liby-dev to libbison-dev to avoid name conflict with Y sound
+    server library header files (closes: #644200)
+
+ -- Chuan-kai Lin <cklin@debian.org>  Fri, 07 Oct 2011 22:34:24 -0700
+
+bison (1:2.5.dfsg-1) unstable; urgency=low
+
+  * New upstream release (closes: #631607, #643358)
+  * Update Standards-Version to 3.9.2.0
+  * Fixed all lintian warnings
+  * Convert package to 3.0 (quilt) format
+  * Move liby.a to the new liby-dev package for multiarch support.  Thanks
+    to Riku Voipio <riku.voipio@iki.fi> for patch (closes: #642081)
+
+ -- Chuan-kai Lin <cklin@debian.org>  Sun, 02 Oct 2011 22:59:24 -0700
+
 bison (1:2.4.1.dfsg-3) unstable; urgency=low
 
   * Move upstream yacc.1 man page to bison.yacc.1 and let the alternatives

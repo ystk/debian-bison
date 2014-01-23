@@ -1,10 +1,8 @@
-
-/* A Bison parser, made by GNU Bison 2.4.1.  */
+/* A Bison parser, made by GNU Bison 2.5.  */
 
 /* Skeleton interface for Bison LALR(1) parsers in C++
    
-      Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software
-   Foundation, Inc.
+      Copyright (C) 2002-2011 Free Software Foundation, Inc.
    
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -39,41 +37,21 @@
 
 /* "%code requires" blocks.  */
 
-/* Line 300 of lalr1.cc  */
-#line 8438 "../../doc/bison.texinfo"
+/* Line 35 of lalr1.cc  */
+#line 9107 "../../doc/bison.texinfo"
 
 # include <string>
 class calcxx_driver;
 
 
 
-/* Line 300 of lalr1.cc  */
-#line 52 "./calc++-parser.hh"
+/* Line 35 of lalr1.cc  */
+#line 50 "./calc++-parser.hh"
 
 
 #include <string>
 #include <iostream>
 #include "stack.hh"
-
-
-/* Line 300 of lalr1.cc  */
-#line 1 "[Bison:b4_percent_define_default]"
-
-namespace yy {
-
-/* Line 300 of lalr1.cc  */
-#line 66 "./calc++-parser.hh"
-  class position;
-  class location;
-
-/* Line 300 of lalr1.cc  */
-#line 1 "[Bison:b4_percent_define_default]"
-
-} // yy
-
-/* Line 300 of lalr1.cc  */
-#line 76 "./calc++-parser.hh"
-
 #include "location.hh"
 
 /* Enabling traces.  */
@@ -94,33 +72,11 @@ namespace yy {
 # define YYTOKEN_TABLE 0
 #endif
 
-/* YYLLOC_DEFAULT -- Set CURRENT to span from RHS[1] to RHS[N].
-   If N is 0, then set CURRENT to the empty location which ends
-   the previous symbol: RHS[0] (always defined).  */
-
-#ifndef YYLLOC_DEFAULT
-# define YYLLOC_DEFAULT(Current, Rhs, N)		\
-do {							\
-  if (N)						\
-    {							\
-      (Current).begin = (Rhs)[1].begin;			\
-      (Current).end   = (Rhs)[N].end;			\
-    }							\
-  else							\
-    {							\
-      (Current).begin = (Current).end = (Rhs)[0].end;	\
-    }							\
-} while (false)
-#endif
-
-
-/* Line 300 of lalr1.cc  */
-#line 1 "[Bison:b4_percent_define_default]"
 
 namespace yy {
 
-/* Line 300 of lalr1.cc  */
-#line 124 "./calc++-parser.hh"
+/* Line 35 of lalr1.cc  */
+#line 80 "./calc++-parser.hh"
 
   /// A Bison parser.
   class calcxx_parser
@@ -131,16 +87,16 @@ namespace yy {
     union semantic_type
     {
 
-/* Line 300 of lalr1.cc  */
-#line 8490 "../../doc/bison.texinfo"
+/* Line 35 of lalr1.cc  */
+#line 9160 "../../doc/bison.texinfo"
 
   int          ival;
   std::string *sval;
 
 
 
-/* Line 300 of lalr1.cc  */
-#line 144 "./calc++-parser.hh"
+/* Line 35 of lalr1.cc  */
+#line 100 "./calc++-parser.hh"
     };
 #else
     typedef YYSTYPE semantic_type;
@@ -229,6 +185,14 @@ namespace yy {
     /// The location stack.
     location_stack_type yylocation_stack_;
 
+    /// Whether the given \c yypact_ value indicates a defaulted state.
+    /// \param yyvalue   the value to check
+    static bool yy_pact_value_is_default_ (int yyvalue);
+
+    /// Whether the given \c yytable_ value indicates a syntax error.
+    /// \param yyvalue   the value to check
+    static bool yy_table_value_is_error_ (int yyvalue);
+
     /// Internal symbol numbers.
     typedef unsigned char token_number_type;
     /* Tables.  */
@@ -236,7 +200,7 @@ namespace yy {
     static const signed char yypact_[];
     static const signed char yypact_ninf_;
 
-    /// For a state, default rule to reduce.
+    /// For a state, default reduction number.
     /// Unless\a  yytable_ specifies something else to do.
     /// Zero means the default is an error.
     static const unsigned char yydefact_[];
@@ -267,10 +231,8 @@ namespace yy {
     static const char* const yytname_[];
 #endif
 
-#if YYERROR_VERBOSE
     /// Convert the symbol name \a n to a form suitable for a diagnostic.
-    virtual std::string yytnamerr_ (const char *n);
-#endif
+    static std::string yytnamerr_ (const char *n);
 
 #if YYDEBUG
     /// A type to store symbol numbers and -1.
@@ -326,13 +288,10 @@ namespace yy {
     calcxx_driver& driver;
   };
 
-/* Line 300 of lalr1.cc  */
-#line 1 "[Bison:b4_percent_define_default]"
-
 } // yy
 
-/* Line 300 of lalr1.cc  */
-#line 336 "./calc++-parser.hh"
+/* Line 35 of lalr1.cc  */
+#line 295 "./calc++-parser.hh"
 
 
 

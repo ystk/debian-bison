@@ -1,7 +1,6 @@
 /* System-dependent definitions for Bison.
 
-   Copyright (C) 2000, 2001, 2002, 2003, 2004, 2005, 2006, 2007 Free
-   Software Foundation, Inc.
+   Copyright (C) 2000-2007, 2009-2011 Free Software Foundation, Inc.
 
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -67,13 +66,19 @@ typedef size_t uintptr_t;
 | GCC extensions.  |
 `-----------------*/
 
-/* Use this to suppress gcc's `...may be used before initialized'
-   warnings.  */
-#ifdef lint
-# define IF_LINT(Code) Code
-#else
-# define IF_LINT(Code) /* empty */
-#endif
+/* Use PACIFY_CC to indicate that Code is unimportant to the logic of Bison
+   but that it is necessary for suppressing compiler warnings.  For example,
+   Code might be a variable initializer that's always overwritten before the
+   variable is used.
+
+   PACIFY_CC is intended to be useful only as a comment as it does not alter
+   Code.  It is tempting to redefine PACIFY_CC so that it will suppress Code
+   when configuring without --enable-gcc-warnings.  However, that would mean
+   that, for maintainers, Bison would compile with potentially less warnings
+   and safer logic than it would for users.  Due to the overhead of M4,
+   suppressing Code is unlikely to offer any significant improvement in
+   Bison's performance anyway.  */
+#define PACIFY_CC(Code) Code
 
 #ifndef __attribute__
 /* This feature is available in gcc versions 2.5 and later.  */
@@ -123,14 +128,26 @@ typedef size_t uintptr_t;
 | Assertions.  |
 `-------------*/
 
-/* <assert.h>'s assertions are too heavyweight, and can be disabled
-   too easily, so use aver rather than assert.  */
-static inline void
-aver (bool assertion)
-{
-  if (! assertion)
-    abort ();
-}
+/* In the past, Bison defined aver to simply invoke abort in the case of
+   a failed assertion.  The rationale was that <assert.h>'s assertions
+   were too heavyweight and could be disabled too easily.  See
+   discussions at
+   <http://lists.gnu.org/archive/html/bison-patches/2006-01/msg00080.html>
+   <http://lists.gnu.org/archive/html/bison-patches/2006-09/msg00111.html>.
+
+   However, normal assert output can be helpful during development and
+   in bug reports from users.  Moreover, it's not clear now that
+   <assert.h>'s assertions are significantly heavyweight.  Finally, if
+   users want to experiment with disabling assertions, it's debatable
+   whether it's our responsibility to stop them.  See discussion
+   starting at
+   <http://lists.gnu.org/archive/html/bison-patches/2009-09/msg00013.html>.
+
+   For now, we use assert but we call it aver throughout Bison in case
+   we later wish to try another scheme.
+*/
+#include <assert.h>
+#define aver assert
 
 
 /*-----------.

@@ -5,7 +5,7 @@
 # It is necessary if you want to build targets usually of interest
 # only to the maintainer.
 
-# Copyright (C) 2001, 2003, 2006-2008 Free Software Foundation, Inc.
+# Copyright (C) 2001, 2003, 2006-2011 Free Software Foundation, Inc.
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -38,6 +38,9 @@ ifeq ($(_have-Makefile),yes)
 # Make tar archive easier to reproduce.
 export TAR_OPTIONS = --owner=0 --group=0 --numeric-owner
 
+# Allow the user to add to this in the Makefile.
+ALL_RECURSIVE_TARGETS =
+
 include Makefile
 
 # Some projects override e.g., _autoreconf here.
@@ -46,7 +49,7 @@ include $(srcdir)/maint.mk
 
 # Allow cfg.mk to override these.
 _build-aux ?= build-aux
-_autoreconf ?= autoreconf
+_autoreconf ?= autoreconf -v
 
 # Ensure that $(VERSION) is up to date for dist-related targets, but not
 # for others: rerunning autoreconf and recompiling everything isn't cheap.
@@ -54,14 +57,16 @@ _have-git-version-gen := \
   $(shell test -f $(srcdir)/$(_build-aux)/git-version-gen && echo yes)
 ifeq ($(_have-git-version-gen)0,yes$(MAKELEVEL))
   _is-dist-target ?= $(filter-out %clean, \
-    $(filter maintainer-% dist% alpha beta major,$(MAKECMDGOALS)))
+    $(filter maintainer-% dist% alpha beta stable,$(MAKECMDGOALS)))
   _is-install-target ?= $(filter-out %check, $(filter install%,$(MAKECMDGOALS)))
   ifneq (,$(_is-dist-target)$(_is-install-target))
-    _curr-ver := $(shell cd $(srcdir) \
-                   && $(_build-aux)/git-version-gen .tarball-version)
+    _curr-ver := $(shell cd $(srcdir)				\
+                   && $(_build-aux)/git-version-gen		\
+                         .tarball-version			\
+                         $(git-version-gen-tag-sed-script))
     ifneq ($(_curr-ver),$(VERSION))
       ifeq ($(_curr-ver),UNKNOWN)
-        $(info WARNING: unable to verify if $(VERSION) is correct version)
+        $(info WARNING: unable to verify if $(VERSION) is the correct version)
       else
         ifneq (,$(_is-install-target))
           # GNU Coding Standards state that 'make install' should not cause
@@ -75,7 +80,8 @@ ifeq ($(_have-git-version-gen)0,yes$(MAKELEVEL))
           $(info run '$(MAKE) _version' to fix it)
         else
           $(info INFO: running autoreconf for new version string: $(_curr-ver))
-          _dummy := $(shell $(MAKE) $(AM_MAKEFLAGS) _version)
+GNUmakefile: _version
+	touch GNUmakefile
         endif
       endif
     endif
@@ -85,6 +91,7 @@ endif
 .PHONY: _version
 _version:
 	cd $(srcdir) && rm -rf autom4te.cache .version && $(_autoreconf)
+	$(MAKE) $(AM_MAKEFLAGS) Makefile
 
 else
 
@@ -107,6 +114,18 @@ abort-due-to-no-makefile:
 endif
 
 # Tell version 3.79 and up of GNU make to not build goals in this
-# directory in parallel.  This is necessary in case someone tries to
-# build multiple targets on one command line.
+# directory in parallel, in case someone tries to build multiple
+# targets, and one of them can cause a recursive target to be invoked.
+
+# Only set this if Automake doesn't provide it.
+AM_RECURSIVE_TARGETS ?= $(RECURSIVE_TARGETS:-recursive=) \
+  $(RECURSIVE_CLEAN_TARGETS:-recursive=) \
+  dist distcheck tags ctags
+
+ALL_RECURSIVE_TARGETS += $(AM_RECURSIVE_TARGETS)
+
+ifneq ($(word 2, $(MAKECMDGOALS)), )
+ifneq ($(filter $(ALL_RECURSIVE_TARGETS), $(MAKECMDGOALS)), )
 .NOTPARALLEL:
+endif
+endif
