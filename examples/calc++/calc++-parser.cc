@@ -1,10 +1,8 @@
-
-/* A Bison parser, made by GNU Bison 2.4.1.  */
+/* A Bison parser, made by GNU Bison 2.5.  */
 
 /* Skeleton implementation for Bison LALR(1) parsers in C++
    
-      Copyright (C) 2002, 2003, 2004, 2005, 2006, 2007, 2008 Free Software
-   Foundation, Inc.
+      Copyright (C) 2002-2011 Free Software Foundation, Inc.
    
    This program is free software: you can redistribute it and/or modify
    it under the terms of the GNU General Public License as published by
@@ -36,8 +34,8 @@
 /* First part of user declarations.  */
 
 
-/* Line 311 of lalr1.cc  */
-#line 41 "./calc++-parser.cc"
+/* Line 293 of lalr1.cc  */
+#line 39 "./calc++-parser.cc"
 
 
 #include "calc++-parser.hh"
@@ -45,22 +43,22 @@
 /* User implementation prologue.  */
 
 
-/* Line 317 of lalr1.cc  */
-#line 50 "./calc++-parser.cc"
+/* Line 299 of lalr1.cc  */
+#line 48 "./calc++-parser.cc"
 /* Unqualified %code blocks.  */
 
-/* Line 318 of lalr1.cc  */
-#line 8503 "../../doc/bison.texinfo"
+/* Line 300 of lalr1.cc  */
+#line 9173 "../../doc/bison.texinfo"
 
 # include "calc++-driver.hh"
 
 
 
-/* Line 318 of lalr1.cc  */
-#line 61 "./calc++-parser.cc"
+/* Line 300 of lalr1.cc  */
+#line 59 "./calc++-parser.cc"
 
 #ifndef YY_
-# if YYENABLE_NLS
+# if defined YYENABLE_NLS && YYENABLE_NLS
 #  if ENABLE_NLS
 #   include <libintl.h> /* FIXME: INFRINGES ON USER NAME SPACE */
 #   define YY_(msgid) dgettext ("bison-runtime", msgid)
@@ -69,6 +67,26 @@
 # ifndef YY_
 #  define YY_(msgid) msgid
 # endif
+#endif
+
+/* YYLLOC_DEFAULT -- Set CURRENT to span from RHS[1] to RHS[N].
+   If N is 0, then set CURRENT to the empty location which ends
+   the previous symbol: RHS[0] (always defined).  */
+
+#define YYRHSLOC(Rhs, K) ((Rhs)[K])
+#ifndef YYLLOC_DEFAULT
+# define YYLLOC_DEFAULT(Current, Rhs, N)                               \
+ do                                                                    \
+   if (N)                                                              \
+     {                                                                 \
+       (Current).begin = YYRHSLOC (Rhs, 1).begin;                      \
+       (Current).end   = YYRHSLOC (Rhs, N).end;                        \
+     }                                                                 \
+   else                                                                \
+     {                                                                 \
+       (Current).begin = (Current).end = YYRHSLOC (Rhs, 0).end;        \
+     }                                                                 \
+ while (false)
 #endif
 
 /* Suppress unused-variable warnings by "using" E.  */
@@ -120,14 +138,10 @@ do {					\
 #define YYRECOVERING()  (!!yyerrstatus_)
 
 
-/* Line 380 of lalr1.cc  */
-#line 1 "[Bison:b4_percent_define_default]"
-
 namespace yy {
 
-/* Line 380 of lalr1.cc  */
-#line 130 "./calc++-parser.cc"
-#if YYERROR_VERBOSE
+/* Line 382 of lalr1.cc  */
+#line 145 "./calc++-parser.cc"
 
   /* Return YYSTR after stripping away unnecessary quotes and
      backslashes, so that it's suitable for yyerror.  The heuristic is
@@ -166,7 +180,6 @@ namespace yy {
     return yystr;
   }
 
-#endif
 
   /// Build a parser object.
   calcxx_parser::calcxx_parser (calcxx_driver& driver_yyarg)
@@ -199,29 +212,29 @@ namespace yy {
         case 4: /* "\"identifier\"" */
 
 /* Line 449 of lalr1.cc  */
-#line 8532 "../../doc/bison.texinfo"
+#line 9202 "../../doc/bison.texinfo"
 	{ debug_stream () << *(yyvaluep->sval); };
 
 /* Line 449 of lalr1.cc  */
-#line 207 "./calc++-parser.cc"
+#line 220 "./calc++-parser.cc"
 	break;
       case 5: /* "\"number\"" */
 
 /* Line 449 of lalr1.cc  */
-#line 8535 "../../doc/bison.texinfo"
+#line 9205 "../../doc/bison.texinfo"
 	{ debug_stream () << (yyvaluep->ival); };
 
 /* Line 449 of lalr1.cc  */
-#line 216 "./calc++-parser.cc"
+#line 229 "./calc++-parser.cc"
 	break;
       case 14: /* "exp" */
 
 /* Line 449 of lalr1.cc  */
-#line 8535 "../../doc/bison.texinfo"
+#line 9205 "../../doc/bison.texinfo"
 	{ debug_stream () << (yyvaluep->ival); };
 
 /* Line 449 of lalr1.cc  */
-#line 225 "./calc++-parser.cc"
+#line 238 "./calc++-parser.cc"
 	break;
        default:
 	  break;
@@ -256,11 +269,11 @@ namespace yy {
         case 4: /* "\"identifier\"" */
 
 /* Line 480 of lalr1.cc  */
-#line 8533 "../../doc/bison.texinfo"
+#line 9203 "../../doc/bison.texinfo"
 	{ delete (yyvaluep->sval); };
 
 /* Line 480 of lalr1.cc  */
-#line 264 "./calc++-parser.cc"
+#line 277 "./calc++-parser.cc"
 	break;
 
 	default:
@@ -303,6 +316,18 @@ namespace yy {
   }
 #endif
 
+  inline bool
+  calcxx_parser::yy_pact_value_is_default_ (int yyvalue)
+  {
+    return yyvalue == yypact_ninf_;
+  }
+
+  inline bool
+  calcxx_parser::yy_table_value_is_error_ (int yyvalue)
+  {
+    return yyvalue == yytable_ninf_;
+  }
+
   int
   calcxx_parser::parse ()
   {
@@ -324,7 +349,7 @@ namespace yy {
     /// Location of the lookahead.
     location_type yylloc;
     /// The locations where the error started and ended.
-    location_type yyerror_range[2];
+    location_type yyerror_range[3];
 
     /// $$.
     semantic_type yyval;
@@ -338,15 +363,15 @@ namespace yy {
 
     /* User initialization code.  */
     
-/* Line 559 of lalr1.cc  */
-#line 8466 "../../doc/bison.texinfo"
+/* Line 565 of lalr1.cc  */
+#line 9135 "../../doc/bison.texinfo"
 {
   // Initialize the initial location.
   yylloc.begin.filename = yylloc.end.filename = &driver.file;
 }
 
-/* Line 559 of lalr1.cc  */
-#line 350 "./calc++-parser.cc"
+/* Line 565 of lalr1.cc  */
+#line 375 "./calc++-parser.cc"
 
     /* Initialize the stacks.  The initial state will be pushed in
        yynewstate, since the latter expects the semantical and the
@@ -374,7 +399,7 @@ namespace yy {
 
     /* Try to take a decision without lookahead.  */
     yyn = yypact_[yystate];
-    if (yyn == yypact_ninf_)
+    if (yy_pact_value_is_default_ (yyn))
       goto yydefault;
 
     /* Read a lookahead token.  */
@@ -407,8 +432,8 @@ namespace yy {
     yyn = yytable_[yyn];
     if (yyn <= 0)
       {
-	if (yyn == 0 || yyn == yytable_ninf_)
-	goto yyerrlab;
+	if (yy_table_value_is_error_ (yyn))
+	  goto yyerrlab;
 	yyn = -yyn;
 	goto yyreduce;
       }
@@ -464,81 +489,92 @@ namespace yy {
       {
 	  case 2:
 
-/* Line 678 of lalr1.cc  */
-#line 8545 "../../doc/bison.texinfo"
+/* Line 690 of lalr1.cc  */
+#line 9215 "../../doc/bison.texinfo"
     { driver.result = (yysemantic_stack_[(2) - (2)].ival); }
     break;
 
   case 3:
 
-/* Line 678 of lalr1.cc  */
-#line 8547 "../../doc/bison.texinfo"
+/* Line 690 of lalr1.cc  */
+#line 9217 "../../doc/bison.texinfo"
     {}
     break;
 
   case 4:
 
-/* Line 678 of lalr1.cc  */
-#line 8548 "../../doc/bison.texinfo"
+/* Line 690 of lalr1.cc  */
+#line 9218 "../../doc/bison.texinfo"
     {}
     break;
 
   case 5:
 
-/* Line 678 of lalr1.cc  */
-#line 8552 "../../doc/bison.texinfo"
+/* Line 690 of lalr1.cc  */
+#line 9222 "../../doc/bison.texinfo"
     { driver.variables[*(yysemantic_stack_[(3) - (1)].sval)] = (yysemantic_stack_[(3) - (3)].ival); delete (yysemantic_stack_[(3) - (1)].sval); }
     break;
 
   case 6:
 
-/* Line 678 of lalr1.cc  */
-#line 8556 "../../doc/bison.texinfo"
+/* Line 690 of lalr1.cc  */
+#line 9226 "../../doc/bison.texinfo"
     { (yyval.ival) = (yysemantic_stack_[(3) - (1)].ival) + (yysemantic_stack_[(3) - (3)].ival); }
     break;
 
   case 7:
 
-/* Line 678 of lalr1.cc  */
-#line 8557 "../../doc/bison.texinfo"
+/* Line 690 of lalr1.cc  */
+#line 9227 "../../doc/bison.texinfo"
     { (yyval.ival) = (yysemantic_stack_[(3) - (1)].ival) - (yysemantic_stack_[(3) - (3)].ival); }
     break;
 
   case 8:
 
-/* Line 678 of lalr1.cc  */
-#line 8558 "../../doc/bison.texinfo"
+/* Line 690 of lalr1.cc  */
+#line 9228 "../../doc/bison.texinfo"
     { (yyval.ival) = (yysemantic_stack_[(3) - (1)].ival) * (yysemantic_stack_[(3) - (3)].ival); }
     break;
 
   case 9:
 
-/* Line 678 of lalr1.cc  */
-#line 8559 "../../doc/bison.texinfo"
+/* Line 690 of lalr1.cc  */
+#line 9229 "../../doc/bison.texinfo"
     { (yyval.ival) = (yysemantic_stack_[(3) - (1)].ival) / (yysemantic_stack_[(3) - (3)].ival); }
     break;
 
   case 10:
 
-/* Line 678 of lalr1.cc  */
-#line 8560 "../../doc/bison.texinfo"
+/* Line 690 of lalr1.cc  */
+#line 9230 "../../doc/bison.texinfo"
     { (yyval.ival) = driver.variables[*(yysemantic_stack_[(1) - (1)].sval)]; delete (yysemantic_stack_[(1) - (1)].sval); }
     break;
 
   case 11:
 
-/* Line 678 of lalr1.cc  */
-#line 8561 "../../doc/bison.texinfo"
+/* Line 690 of lalr1.cc  */
+#line 9231 "../../doc/bison.texinfo"
     { (yyval.ival) = (yysemantic_stack_[(1) - (1)].ival); }
     break;
 
 
 
-/* Line 678 of lalr1.cc  */
-#line 539 "./calc++-parser.cc"
+/* Line 690 of lalr1.cc  */
+#line 564 "./calc++-parser.cc"
 	default:
           break;
       }
+    /* User semantic actions sometimes alter yychar, and that requires
+       that yytoken be updated with the new translation.  We take the
+       approach of translating immediately before every use of yytoken.
+       One alternative is translating here after every semantic action,
+       but that translation would be missed if the semantic action
+       invokes YYABORT, YYACCEPT, or YYERROR immediately after altering
+       yychar.  In the case of YYABORT or YYACCEPT, an incorrect
+       destructor might then be invoked immediately.  In the case of
+       YYERROR, subsequent parser actions might lead to an incorrect
+       destructor call or verbose syntax error message before the
+       lookahead is translated.  */
     YY_SYMBOL_PRINT ("-> $$ =", yyr1_[yyn], &yyval, &yyloc);
 
     yypop_ (yylen);
@@ -562,14 +598,20 @@ namespace yy {
   | yyerrlab -- here on detecting error |
   `------------------------------------*/
   yyerrlab:
+    /* Make sure we have latest lookahead translation.  See comments at
+       user semantic actions for why this is necessary.  */
+    yytoken = yytranslate_ (yychar);
+
     /* If not already recovering from an error, report this error.  */
     if (!yyerrstatus_)
       {
 	++yynerrs_;
+	if (yychar == yyempty_)
+	  yytoken = yyempty_;
 	error (yylloc, yysyntax_error_ (yystate, yytoken));
       }
 
-    yyerror_range[0] = yylloc;
+    yyerror_range[1] = yylloc;
     if (yyerrstatus_ == 3)
       {
 	/* If just tried and failed to reuse lookahead token after an
@@ -604,7 +646,7 @@ namespace yy {
     if (false)
       goto yyerrorlab;
 
-    yyerror_range[0] = yylocation_stack_[yylen - 1];
+    yyerror_range[1] = yylocation_stack_[yylen - 1];
     /* Do not reclaim the symbols of the rule which action triggered
        this YYERROR.  */
     yypop_ (yylen);
@@ -621,7 +663,7 @@ namespace yy {
     for (;;)
       {
 	yyn = yypact_[yystate];
-	if (yyn != yypact_ninf_)
+	if (!yy_pact_value_is_default_ (yyn))
 	{
 	  yyn += yyterror_;
 	  if (0 <= yyn && yyn <= yylast_ && yycheck_[yyn] == yyterror_)
@@ -636,7 +678,7 @@ namespace yy {
 	if (yystate_stack_.height () == 1)
 	YYABORT;
 
-	yyerror_range[0] = yylocation_stack_[0];
+	yyerror_range[1] = yylocation_stack_[0];
 	yydestruct_ ("Error: popping",
 		     yystos_[yystate],
 		     &yysemantic_stack_[0], &yylocation_stack_[0]);
@@ -645,10 +687,10 @@ namespace yy {
 	YY_STACK_PRINT ();
       }
 
-    yyerror_range[1] = yylloc;
+    yyerror_range[2] = yylloc;
     // Using YYLLOC is tempting, but would change the location of
     // the lookahead.  YYLOC is available though.
-    YYLLOC_DEFAULT (yyloc, (yyerror_range - 1), 2);
+    YYLLOC_DEFAULT (yyloc, yyerror_range, 2);
     yysemantic_stack_.push (yylval);
     yylocation_stack_.push (yyloc);
 
@@ -671,7 +713,13 @@ namespace yy {
 
   yyreturn:
     if (yychar != yyempty_)
-      yydestruct_ ("Cleanup: discarding lookahead", yytoken, &yylval, &yylloc);
+      {
+        /* Make sure we have latest lookahead translation.  See comments
+           at user semantic actions for why this is necessary.  */
+        yytoken = yytranslate_ (yychar);
+        yydestruct_ ("Cleanup: discarding lookahead", yytoken, &yylval,
+                     &yylloc);
+      }
 
     /* Do not reclaim the symbols of the rule which action triggered
        this YYABORT or YYACCEPT.  */
@@ -690,51 +738,97 @@ namespace yy {
 
   // Generate an error message.
   std::string
-  calcxx_parser::yysyntax_error_ (int yystate, int tok)
+  calcxx_parser::yysyntax_error_ (int yystate, int yytoken)
   {
-    std::string res;
-    YYUSE (yystate);
-#if YYERROR_VERBOSE
-    int yyn = yypact_[yystate];
-    if (yypact_ninf_ < yyn && yyn <= yylast_)
+    std::string yyres;
+    // Number of reported tokens (one for the "unexpected", one per
+    // "expected").
+    size_t yycount = 0;
+    // Its maximum.
+    enum { YYERROR_VERBOSE_ARGS_MAXIMUM = 5 };
+    // Arguments of yyformat.
+    char const *yyarg[YYERROR_VERBOSE_ARGS_MAXIMUM];
+
+    /* There are many possibilities here to consider:
+       - If this state is a consistent state with a default action, then
+         the only way this function was invoked is if the default action
+         is an error action.  In that case, don't check for expected
+         tokens because there are none.
+       - The only way there can be no lookahead present (in yytoken) is
+         if this state is a consistent state with a default action.
+         Thus, detecting the absence of a lookahead is sufficient to
+         determine that there is no unexpected or expected token to
+         report.  In that case, just report a simple "syntax error".
+       - Don't assume there isn't a lookahead just because this state is
+         a consistent state with a default action.  There might have
+         been a previous inconsistent state, consistent state with a
+         non-default action, or user semantic action that manipulated
+         yychar.
+       - Of course, the expected token list depends on states to have
+         correct lookahead information, and it depends on the parser not
+         to perform extra reductions after fetching a lookahead from the
+         scanner and before detecting a syntax error.  Thus, state
+         merging (from LALR or IELR) and default reductions corrupt the
+         expected token list.  However, the list is correct for
+         canonical LR with one exception: it will still contain any
+         token that will not be accepted due to an error action in a
+         later state.
+    */
+    if (yytoken != yyempty_)
       {
-	/* Start YYX at -YYN if negative to avoid negative indexes in
-	   YYCHECK.  */
-	int yyxbegin = yyn < 0 ? -yyn : 0;
-
-	/* Stay within bounds of both yycheck and yytname.  */
-	int yychecklim = yylast_ - yyn + 1;
-	int yyxend = yychecklim < yyntokens_ ? yychecklim : yyntokens_;
-	int count = 0;
-	for (int x = yyxbegin; x < yyxend; ++x)
-	  if (yycheck_[x + yyn] == x && x != yyterror_)
-	    ++count;
-
-	// FIXME: This method of building the message is not compatible
-	// with internationalization.  It should work like yacc.c does it.
-	// That is, first build a string that looks like this:
-	// "syntax error, unexpected %s or %s or %s"
-	// Then, invoke YY_ on this string.
-	// Finally, use the string as a format to output
-	// yytname_[tok], etc.
-	// Until this gets fixed, this message appears in English only.
-	res = "syntax error, unexpected ";
-	res += yytnamerr_ (yytname_[tok]);
-	if (count < 5)
-	  {
-	    count = 0;
-	    for (int x = yyxbegin; x < yyxend; ++x)
-	      if (yycheck_[x + yyn] == x && x != yyterror_)
-		{
-		  res += (!count++) ? ", expecting " : " or ";
-		  res += yytnamerr_ (yytname_[x]);
-		}
-	  }
+        yyarg[yycount++] = yytname_[yytoken];
+        int yyn = yypact_[yystate];
+        if (!yy_pact_value_is_default_ (yyn))
+          {
+            /* Start YYX at -YYN if negative to avoid negative indexes in
+               YYCHECK.  In other words, skip the first -YYN actions for
+               this state because they are default actions.  */
+            int yyxbegin = yyn < 0 ? -yyn : 0;
+            /* Stay within bounds of both yycheck and yytname.  */
+            int yychecklim = yylast_ - yyn + 1;
+            int yyxend = yychecklim < yyntokens_ ? yychecklim : yyntokens_;
+            for (int yyx = yyxbegin; yyx < yyxend; ++yyx)
+              if (yycheck_[yyx + yyn] == yyx && yyx != yyterror_
+                  && !yy_table_value_is_error_ (yytable_[yyx + yyn]))
+                {
+                  if (yycount == YYERROR_VERBOSE_ARGS_MAXIMUM)
+                    {
+                      yycount = 1;
+                      break;
+                    }
+                  else
+                    yyarg[yycount++] = yytname_[yyx];
+                }
+          }
       }
-    else
-#endif
-      res = YY_("syntax error");
-    return res;
+
+    char const* yyformat = 0;
+    switch (yycount)
+      {
+#define YYCASE_(N, S)                         \
+        case N:                               \
+          yyformat = S;                       \
+        break
+        YYCASE_(0, YY_("syntax error"));
+        YYCASE_(1, YY_("syntax error, unexpected %s"));
+        YYCASE_(2, YY_("syntax error, unexpected %s, expecting %s"));
+        YYCASE_(3, YY_("syntax error, unexpected %s, expecting %s or %s"));
+        YYCASE_(4, YY_("syntax error, unexpected %s, expecting %s or %s or %s"));
+        YYCASE_(5, YY_("syntax error, unexpected %s, expecting %s or %s or %s or %s"));
+#undef YYCASE_
+      }
+
+    // Argument number.
+    size_t yyi = 0;
+    for (char const* yyp = yyformat; *yyp; ++yyp)
+      if (yyp[0] == '%' && yyp[1] == 's' && yyi < yycount)
+        {
+          yyres += yytnamerr_ (yyarg[yyi++]);
+          ++yyp;
+        }
+      else
+        yyres += *yyp;
+    return yyres;
   }
 
 
@@ -748,9 +842,9 @@ namespace yy {
        7,     7,     7,    -9,    -1,     6,     6,    -9,    -9
   };
 
-  /* YYDEFACT[S] -- default rule to reduce with in state S when YYTABLE
-     doesn't specify something else to do.  Zero means the default is an
-     error.  */
+  /* YYDEFACT[S] -- default reduction number in state S.  Performed when
+     YYTABLE doesn't specify something else to do.  Zero means the
+     default is an error.  */
   const unsigned char
   calcxx_parser::yydefact_[] =
   {
@@ -774,7 +868,7 @@ namespace yy {
 
   /* YYTABLE[YYPACT[STATE-NUM]].  What to do in state STATE-NUM.  If
      positive, shift that token.  If negative, reduce the rule which
-     number is the opposite.  If zero, do what YYDEFACT says.  */
+     number is the opposite.  If YYTABLE_NINF_, syntax error.  */
   const signed char calcxx_parser::yytable_ninf_ = -1;
   const unsigned char
   calcxx_parser::yytable_[] =
@@ -862,8 +956,8 @@ namespace yy {
   const unsigned short int
   calcxx_parser::yyrline_[] =
   {
-         0,  8545,  8545,  8547,  8548,  8551,  8556,  8557,  8558,  8559,
-    8560,  8561
+         0,  9215,  9215,  9217,  9218,  9221,  9226,  9227,  9228,  9229,
+    9230,  9231
   };
 
   // Print the state stack on the debug stream.
@@ -950,19 +1044,16 @@ namespace yy {
   const calcxx_parser::token_number_type calcxx_parser::yyundef_token_ = 2;
 
 
-/* Line 1054 of lalr1.cc  */
-#line 1 "[Bison:b4_percent_define_default]"
-
 } // yy
 
-/* Line 1054 of lalr1.cc  */
-#line 960 "./calc++-parser.cc"
+/* Line 1136 of lalr1.cc  */
+#line 1051 "./calc++-parser.cc"
 
 
-/* Line 1056 of lalr1.cc  */
-#line 8562 "../../doc/bison.texinfo"
+/* Line 1138 of lalr1.cc  */
+#line 9232 "../../doc/bison.texinfo"
 
-#line 8571 "../../doc/bison.texinfo"
+#line 9241 "../../doc/bison.texinfo"
 void
 yy::calcxx_parser::error (const yy::calcxx_parser::location_type& l,
                           const std::string& m)

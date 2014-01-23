@@ -1,6 +1,6 @@
 /* -*- buffer-read-only: t -*- vi: set ro: */
 /* DO NOT EDIT! GENERATED AUTOMATICALLY! */
-/* Copyright (C) 2001-2002, 2004-2008 Free Software Foundation, Inc.
+/* Copyright (C) 2001-2002, 2004-2011 Free Software Foundation, Inc.
    Written by Paul Eggert, Bruno Haible, Sam Steingold, Peter Burwood.
    This file is part of gnulib.
 
@@ -24,6 +24,11 @@
  */
 
 #ifndef _GL_STDINT_H
+
+#if __GNUC__ >= 3
+@PRAGMA_SYSTEM_HEADER@
+#endif
+@PRAGMA_COLUMNS@
 
 /* When including a system file that in turn includes <inttypes.h>,
    use the system <inttypes.h>, not our substitute.  This avoids
@@ -51,9 +56,6 @@
      in <inttypes.h> would reinclude us, skipping our contents because
      _GL_STDINT_H is defined.
      The include_next requires a split double-inclusion guard.  */
-# if __GNUC__ >= 3
-@PRAGMA_SYSTEM_HEADER@
-# endif
 # @INCLUDE_NEXT@ @NEXT_STDINT_H@
 #endif
 
@@ -91,15 +93,6 @@
 # include <sys/bitypes.h>
 #endif
 
-#if ! defined __cplusplus || defined __STDC_CONSTANT_MACROS
-
-/* Get WCHAR_MIN, WCHAR_MAX.  */
-# if ! (defined WCHAR_MIN && defined WCHAR_MAX)
-#  include <wchar.h>
-# endif
-
-#endif
-
 #undef _GL_JUST_INCLUDE_SYSTEM_INTTYPES_H
 
 /* Minimum and maximum values for a integer type under the usual assumption.
@@ -113,9 +106,11 @@
   ((signed) \
    ? ~ _STDINT_MIN (signed, bits, zero) \
    : /* The expression for the unsigned case.  The subtraction of (signed) \
-	is a nop in the unsigned case and avoids "signed integer overflow" \
-	warnings in the signed case.  */ \
+        is a nop in the unsigned case and avoids "signed integer overflow" \
+        warnings in the signed case.  */ \
      ((((zero) + 1) << ((bits) ? (bits) - 1 - (signed) : 0)) - 1) * 2 + 1)
+
+#if !GNULIB_defined_stdint_types
 
 /* 7.18.1.1. Exact-width integer types */
 
@@ -143,40 +138,54 @@ typedef unsigned int gl_uint32_t;
 #define int32_t gl_int32_t
 #define uint32_t gl_uint32_t
 
+/* If the system defines INT64_MAX, assume int64_t works.  That way,
+   if the underlying platform defines int64_t to be a 64-bit long long
+   int, the code below won't mistakenly define it to be a 64-bit long
+   int, which would mess up C++ name mangling.  We must use #ifdef
+   rather than #if, to avoid an error with HP-UX 10.20 cc.  */
+
+#ifdef INT64_MAX
+# define GL_INT64_T
+#else
 /* Do not undefine int64_t if gnulib is not being used with 64-bit
    types, since otherwise it breaks platforms like Tandem/NSK.  */
-#if LONG_MAX >> 31 >> 31 == 1
-# undef int64_t
+# if LONG_MAX >> 31 >> 31 == 1
+#  undef int64_t
 typedef long int gl_int64_t;
-# define int64_t gl_int64_t
-# define GL_INT64_T
-#elif defined _MSC_VER
-# undef int64_t
+#  define int64_t gl_int64_t
+#  define GL_INT64_T
+# elif defined _MSC_VER
+#  undef int64_t
 typedef __int64 gl_int64_t;
-# define int64_t gl_int64_t
-# define GL_INT64_T
-#elif @HAVE_LONG_LONG_INT@
-# undef int64_t
+#  define int64_t gl_int64_t
+#  define GL_INT64_T
+# elif @HAVE_LONG_LONG_INT@
+#  undef int64_t
 typedef long long int gl_int64_t;
-# define int64_t gl_int64_t
-# define GL_INT64_T
+#  define int64_t gl_int64_t
+#  define GL_INT64_T
+# endif
 #endif
 
-#if ULONG_MAX >> 31 >> 31 >> 1 == 1
-# undef uint64_t
+#ifdef UINT64_MAX
+# define GL_UINT64_T
+#else
+# if ULONG_MAX >> 31 >> 31 >> 1 == 1
+#  undef uint64_t
 typedef unsigned long int gl_uint64_t;
-# define uint64_t gl_uint64_t
-# define GL_UINT64_T
-#elif defined _MSC_VER
-# undef uint64_t
+#  define uint64_t gl_uint64_t
+#  define GL_UINT64_T
+# elif defined _MSC_VER
+#  undef uint64_t
 typedef unsigned __int64 gl_uint64_t;
-# define uint64_t gl_uint64_t
-# define GL_UINT64_T
-#elif @HAVE_UNSIGNED_LONG_LONG_INT@
-# undef uint64_t
+#  define uint64_t gl_uint64_t
+#  define GL_UINT64_T
+# elif @HAVE_UNSIGNED_LONG_LONG_INT@
+#  undef uint64_t
 typedef unsigned long long int gl_uint64_t;
-# define uint64_t gl_uint64_t
-# define GL_UINT64_T
+#  define uint64_t gl_uint64_t
+#  define GL_UINT64_T
+# endif
 #endif
 
 /* Avoid collision with Solaris 2.5.1 <pthread.h> etc.  */
@@ -288,7 +297,11 @@ typedef unsigned long int gl_uintmax_t;
 /* Verify that intmax_t and uintmax_t have the same size.  Too much code
    breaks if this is not the case.  If this check fails, the reason is likely
    to be found in the autoconf macros.  */
-typedef int _verify_intmax_size[2 * (sizeof (intmax_t) == sizeof (uintmax_t)) - 1];
+typedef int _verify_intmax_size[sizeof (intmax_t) == sizeof (uintmax_t)
+                                ? 1 : -1];
+
+#define GNULIB_defined_stdint_types 1
+#endif /* !GNULIB_defined_stdint_types */
 
 /* 7.18.2. Limits of specified-width integer types */
 
@@ -320,17 +333,14 @@ typedef int _verify_intmax_size[2 * (sizeof (intmax_t) == sizeof (uintmax_t)) - 
 #define INT32_MAX  2147483647
 #define UINT32_MAX  4294967295U
 
-#undef INT64_MIN
-#undef INT64_MAX
-#ifdef GL_INT64_T
+#if defined GL_INT64_T && ! defined INT64_MAX
 /* Prefer (- INTMAX_C (1) << 63) over (~ INT64_MAX) because SunPRO C 5.0
    evaluates the latter incorrectly in preprocessor expressions.  */
 # define INT64_MIN  (- INTMAX_C (1) << 63)
 # define INT64_MAX  INTMAX_C (9223372036854775807)
 #endif
 
-#undef UINT64_MAX
-#ifdef GL_UINT64_T
+#if defined GL_UINT64_T && ! defined UINT64_MAX
 # define UINT64_MAX  UINTMAX_C (18446744073709551615)
 #endif
 
@@ -445,27 +455,60 @@ typedef int _verify_intmax_size[2 * (sizeof (intmax_t) == sizeof (uintmax_t)) - 
 /* ptrdiff_t limits */
 #undef PTRDIFF_MIN
 #undef PTRDIFF_MAX
-#define PTRDIFF_MIN  \
-   _STDINT_MIN (1, @BITSIZEOF_PTRDIFF_T@, 0@PTRDIFF_T_SUFFIX@)
-#define PTRDIFF_MAX  \
-   _STDINT_MAX (1, @BITSIZEOF_PTRDIFF_T@, 0@PTRDIFF_T_SUFFIX@)
+#if @APPLE_UNIVERSAL_BUILD@
+# ifdef _LP64
+#  define PTRDIFF_MIN  _STDINT_MIN (1, 64, 0l)
+#  define PTRDIFF_MAX  _STDINT_MAX (1, 64, 0l)
+# else
+#  define PTRDIFF_MIN  _STDINT_MIN (1, 32, 0)
+#  define PTRDIFF_MAX  _STDINT_MAX (1, 32, 0)
+# endif
+#else
+# define PTRDIFF_MIN  \
+    _STDINT_MIN (1, @BITSIZEOF_PTRDIFF_T@, 0@PTRDIFF_T_SUFFIX@)
+# define PTRDIFF_MAX  \
+    _STDINT_MAX (1, @BITSIZEOF_PTRDIFF_T@, 0@PTRDIFF_T_SUFFIX@)
+#endif
 
 /* sig_atomic_t limits */
 #undef SIG_ATOMIC_MIN
 #undef SIG_ATOMIC_MAX
 #define SIG_ATOMIC_MIN  \
    _STDINT_MIN (@HAVE_SIGNED_SIG_ATOMIC_T@, @BITSIZEOF_SIG_ATOMIC_T@, \
-		0@SIG_ATOMIC_T_SUFFIX@)
+                0@SIG_ATOMIC_T_SUFFIX@)
 #define SIG_ATOMIC_MAX  \
    _STDINT_MAX (@HAVE_SIGNED_SIG_ATOMIC_T@, @BITSIZEOF_SIG_ATOMIC_T@, \
-		0@SIG_ATOMIC_T_SUFFIX@)
+                0@SIG_ATOMIC_T_SUFFIX@)
 
 
 /* size_t limit */
 #undef SIZE_MAX
-#define SIZE_MAX  _STDINT_MAX (0, @BITSIZEOF_SIZE_T@, 0@SIZE_T_SUFFIX@)
+#if @APPLE_UNIVERSAL_BUILD@
+# ifdef _LP64
+#  define SIZE_MAX  _STDINT_MAX (0, 64, 0ul)
+# else
+#  define SIZE_MAX  _STDINT_MAX (0, 32, 0ul)
+# endif
+#else
+# define SIZE_MAX  _STDINT_MAX (0, @BITSIZEOF_SIZE_T@, 0@SIZE_T_SUFFIX@)
+#endif
 
 /* wchar_t limits */
+/* Get WCHAR_MIN, WCHAR_MAX.
+   This include is not on the top, above, because on OSF/1 4.0 we have a
+   sequence of nested includes
+   <wchar.h> -> <stdio.h> -> <getopt.h> -> <stdlib.h>, and the latter includes
+   <stdint.h> and assumes its types are already defined.  */
+#if @HAVE_WCHAR_H@ && ! (defined WCHAR_MIN && defined WCHAR_MAX)
+  /* BSD/OS 4.0.1 has a bug: <stddef.h>, <stdio.h> and <time.h> must be
+     included before <wchar.h>.  */
+# include <stddef.h>
+# include <stdio.h>
+# include <time.h>
+# define _GL_JUST_INCLUDE_SYSTEM_WCHAR_H
+# include <wchar.h>
+# undef _GL_JUST_INCLUDE_SYSTEM_WCHAR_H
+#endif
 #undef WCHAR_MIN
 #undef WCHAR_MAX
 #define WCHAR_MIN  \
