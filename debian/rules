@@ -1,26 +1,39 @@
 #!/usr/bin/make -f
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+#export DH_OPTIONS=-v
 
-include /usr/share/cdbs/1/rules/debhelper.mk
-include /usr/share/cdbs/1/class/autotools.mk
-
-DEB_CONFIGURE_EXTRA_FLAGS += --libdir=\$${prefix}/lib/$(DEB_HOST_MULTIARCH)
 SRCDIR = $(CURDIR)
-DESTDIR = $(CURDIR)/debian/bison
+DESTDIR = $(CURDIR)/debian/tmp
 
-clean::
-	$(RM) $(SRCDIR)/po/de.gmo
+%:
+	dh $@ --parallel
 
-makebuilddir/bison::
+override_dh_auto_clean:
+	[ ! -f $(SRCDIR)/Makefile ] || dh_auto_clean
+
+override_dh_auto_build:
+	# Touch all files in the dependency tree of bison.info to
+	# inhibit makeinfo invocation in the build process.
+	install -d $(SRCDIR)/doc/figs
 	touch --date="Jan 01 2000" \
 		$(SRCDIR)/doc/bison.info \
-                $(SRCDIR)/doc/bison.texinfo \
-	        $(SRCDIR)/doc/fdl.texi
+		$(SRCDIR)/doc/bison.texi \
+		$(SRCDIR)/doc/bison.help \
+		$(SRCDIR)/doc/figs/example.txt \
+		$(SRCDIR)/doc/figs/example-reduce.txt \
+		$(SRCDIR)/doc/figs/example-shift.txt \
+		$(SRCDIR)/doc/*.texi \
+		$(SRCDIR)/build-aux/cross-options.pl \
+		$(SRCDIR)/src/getargs.c
+	dh_auto_build
 
-build/bison::
-	cd $(CURDIR)/po && $(MAKE) update-gmo
-
-binary-post-install/bison::
+override_dh_auto_install:
+	dh_auto_install
 	$(RM) -R $(DESTDIR)/usr/share/info/
-	mv $(DESTDIR)/usr/bin/yacc $(DESTDIR)/usr/bin/bison.yacc 
+	mv $(DESTDIR)/usr/bin/yacc $(DESTDIR)/usr/bin/bison.yacc
 	mv $(DESTDIR)/usr/share/man/man1/yacc.1 \
-		$(DESTDIR)/usr/share/man/man1/bison.yacc.1 
+		$(DESTDIR)/usr/share/man/man1/bison.yacc.1
+
+override_dh_auto_test:
+

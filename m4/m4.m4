@@ -1,6 +1,6 @@
 # m4.m4 serial 12
 
-# Copyright (C) 2000, 2006-2011 Free Software Foundation, Inc.
+# Copyright (C) 2000, 2006-2013 Free Software Foundation, Inc.
 
 # Copying and distribution of this file, with or without modification,
 # are permitted in any medium without royalty provided the copyright
@@ -18,7 +18,7 @@
 # Also avoid versions of m4 that trigger strstr bugs.
 AC_DEFUN([AC_PROG_GNU_M4],
   [AC_ARG_VAR([M4], [Location of GNU M4 1.4.6 or later.  Defaults to the first
-    program of `m4', `gm4', or `gnum4' on PATH that meets Autoconf needs.])
+    program of 'm4', 'gm4', or 'gnum4' on PATH that meets Autoconf needs.])
   AC_CACHE_CHECK([for GNU M4 that supports accurate traces], [ac_cv_path_M4],
     [rm -f conftest.m4f
 ac_had_posixly_correct=${POSIXLY_CORRECT:+yes}

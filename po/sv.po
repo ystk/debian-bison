@@ -1,122 +1,155 @@
 # Swedish messages for bison.
-# Copyright © 2001-2006, 2008, 2010, 2011 Free Software Foundation, Inc.
+# Copyright ¬© 2001-2006, 2008, 2010, 2011, 2012, 2013 Free Software Foundation, Inc.
 # This file is distributed under the same license as the bison package.
-# Gˆran Uddeborg <goeran@uddeborg.se>, 2001-2006, 2008, 2010, 2011.
+# G√∂ran Uddeborg <goeran@uddeborg.se>, 2001-2006, 2008, 2010, 2011, 2012, 2013.
 #
-# $Revision: 1.75 $
+# $Revision: 1.90 $
 msgid ""
 msgstr ""
-"Project-Id-Version: bison 2.5-rc1\n"
+"Project-Id-Version: bison 2.7.90\n"
 "Report-Msgid-Bugs-To: bug-bison@gnu.org\n"
-"POT-Creation-Date: 2011-05-14 18:25-0400\n"
-"PO-Revision-Date: 2011-05-11 22:25+0200\n"
-"Last-Translator: Gˆran Uddeborg <goeran@uddeborg.se>\n"
+"POT-Creation-Date: 2013-12-05 14:59+0100\n"
+"PO-Revision-Date: 2013-05-30 23:00+0200\n"
+"Last-Translator: G√∂ran Uddeborg <goeran@uddeborg.se>\n"
 "Language-Team: Swedish <tp-sv@listor.tp-sv.se>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
-"Content-Type: text/plain; charset=iso-8859-1\n"
+"Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: src/complain.c:115 src/complain.c:126 src/complain.c:135 src/complain.c:183
-#: src/complain.c:193
+#: src/complain.c:322
+msgid "fatal error"
+msgstr "√∂desdigert fel"
+
+#: src/complain.c:323
+msgid "error"
+msgstr "fel"
+
+#: src/complain.c:324
 msgid "warning"
 msgstr "varning"
 
-#: src/complain.c:203 src/complain.c:210
-msgid "fatal error"
-msgstr "ˆdesdigert fel"
+#: src/complain.c:387
+#, c-format
+msgid "deprecated directive, use %s"
+msgstr "f√∂r√•ldrat direktiv, anv√§nd %s"
+
+#: src/complain.c:391
+#, c-format
+msgid "deprecated directive: %s, use %s"
+msgstr "ogiltigt direktiv: %s, anv√§nd %s"
+
+#: src/complain.c:400
+#, c-format
+msgid "only one %s allowed per rule"
+msgstr "endast en %s till√•ts per regel"
+
+#: src/complain.c:402 src/reader.c:140 src/symtab.c:217 src/symtab.c:229
+#, c-format
+msgid "previous declaration"
+msgstr "f√∂reg√•ende deklaration"
 
 #: src/conflicts.c:77
 #, c-format
 msgid "    Conflict between rule %d and token %s resolved as shift"
-msgstr "    Konflikt mellan regel %d och element %s lˆstes som skift"
+msgstr "    Konflikt mellan regel %d och element %s l√∂stes som skift"
 
 #: src/conflicts.c:86
 #, c-format
 msgid "    Conflict between rule %d and token %s resolved as reduce"
-msgstr "    Konflikt mellan regel %d och element %s lˆstes som reducera"
+msgstr "    Konflikt mellan regel %d och element %s l√∂stes som reducera"
 
 #: src/conflicts.c:94
 #, c-format
 msgid "    Conflict between rule %d and token %s resolved as an error"
-msgstr "    Konflikt mellan regel %d och element %s lˆstes som ett fel"
+msgstr "    Konflikt mellan regel %d och element %s l√∂stes som ett fel"
 
-#: src/conflicts.c:492
+#: src/conflicts.c:530
+#, c-format
+msgid "State %d "
+msgstr "Tillst√•nd %d "
+
+#: src/conflicts.c:533
 #, c-format
 msgid "conflicts: %d shift/reduce, %d reduce/reduce\n"
 msgstr "konflikter: %d skifta/reducera, %d reducera/reducera\n"
 
-#: src/conflicts.c:495
+#: src/conflicts.c:536
 #, c-format
 msgid "conflicts: %d shift/reduce\n"
 msgstr "konflikter: %d skifta/reducera\n"
 
-#: src/conflicts.c:497
+#: src/conflicts.c:538
 #, c-format
 msgid "conflicts: %d reduce/reduce\n"
 msgstr "konflikter: %d reducera/reducera\n"
 
-#: src/conflicts.c:515
-#, c-format
-msgid "State %d "
-msgstr "TillstÂnd %d "
-
-#: src/conflicts.c:582
+#: src/conflicts.c:569
 #, c-format
 msgid "%%expect-rr applies only to GLR parsers"
-msgstr "%%expect-rr g‰ller endast GLR-parsrar"
+msgstr "%%expect-rr g√§ller endast GLR-parsrar"
 
-#: src/conflicts.c:616
+#: src/conflicts.c:586
 #, c-format
-msgid "expected %d shift/reduce conflict"
-msgid_plural "expected %d shift/reduce conflicts"
-msgstr[0] "fˆrv‰ntade %d skifta/reducerakonflikt"
-msgstr[1] "fˆrv‰ntade %d skifta/reducerakonflikter"
+msgid "shift/reduce conflicts: %d found, %d expected"
+msgstr "skifta/reducerakonflikter: %d funna, %d f√∂rv√§ntade"
 
-#: src/conflicts.c:621
+#: src/conflicts.c:591
 #, c-format
-msgid "expected %d reduce/reduce conflict"
-msgid_plural "expected %d reduce/reduce conflicts"
-msgstr[0] "fˆrv‰ntade %d reducera/reducerakonflikt"
-msgstr[1] "fˆrv‰ntade %d reducera/reducerakonflikter"
+msgid "%d shift/reduce conflict"
+msgid_plural "%d shift/reduce conflicts"
+msgstr[0] "%d skifta/reducerakonflikt"
+msgstr[1] "%d skifta/reducerakonflikter"
 
-#: src/files.c:112
+#: src/conflicts.c:608
 #, c-format
-msgid "cannot open file `%s'"
-msgstr "kan inte ˆppna filen \"%s\""
+msgid "reduce/reduce conflicts: %d found, %d expected"
+msgstr "reducera/reducerakonflikter: %d funna, %d f√∂rv√§ntade"
 
-#: src/files.c:128
+#: src/conflicts.c:613
 #, c-format
-msgid "I/O error"
-msgstr "I/O-fel"
+msgid "%d reduce/reduce conflict"
+msgid_plural "%d reduce/reduce conflicts"
+msgstr[0] "%d reducera/reducerakonflikt"
+msgstr[1] "%d reducera/reducerakonflikter"
 
-#: src/files.c:131
+#: src/files.c:123
+#, c-format
+msgid "%s: cannot open"
+msgstr "%s: kan inte √∂ppna"
+
+#: src/files.c:139
+#, c-format
+msgid "input/output error"
+msgstr "in-/utfel"
+
+#: src/files.c:142
 #, c-format
 msgid "cannot close file"
-msgstr "kan inte st‰nga fil"
+msgstr "kan inte st√§nga fil"
 
-#: src/files.c:350
+#: src/files.c:372
 #, c-format
 msgid "refusing to overwrite the input file %s"
-msgstr "v‰grar att skriva ˆver indatafilen %s"
+msgstr "v√§grar att skriva √∂ver indatafilen %s"
 
-#: src/files.c:360
+#: src/files.c:382
 #, c-format
 msgid "conflicting outputs to file %s"
 msgstr "motstridiga utmatningar till filen %s"
 
-#: src/getargs.c:271
+#: src/getargs.c:252
 #, c-format
-msgid "Try `%s --help' for more information.\n"
-msgstr "Fˆrsˆk med \"%s --help\" fˆr mer information.\n"
+msgid "Try '%s --help' for more information.\n"
+msgstr "F√∂rs√∂k med ‚Äù%s --help‚Äù f√∂r mer information.\n"
 
-#: src/getargs.c:280
+#: src/getargs.c:261
 #, c-format
 msgid "Usage: %s [OPTION]... FILE\n"
-msgstr "Anv‰ndning: %s [FLAGGA]... FIL\n"
+msgstr "Anv√§ndning: %s [FLAGGA]... FIL\n"
 
-#: src/getargs.c:281
+#: src/getargs.c:262
 msgid ""
 "Generate a deterministic LR or generalized LR (GLR) parser employing\n"
 "LALR(1), IELR(1), or canonical LR(1) parser tables.  IELR(1) and\n"
@@ -124,22 +157,22 @@ msgid ""
 "\n"
 msgstr ""
 "Generera en deterministisk LR- eller generaliserad LR- (GLR-)parser som\n"
-"anv‰nder LALR(1), IELR(1) eller kanonisk LR(1) parsningstabeller.  Stˆd\n"
-"fˆr IELR(1) och kanonisk LR(1) ‰r experimentellt.\n"
+"anv√§nder LALR(1), IELR(1) eller kanonisk LR(1) parsningstabeller.  St√∂d\n"
+"f√∂r IELR(1) och kanonisk LR(1) √§r experimentellt.\n"
 "\n"
 
-#: src/getargs.c:288
+#: src/getargs.c:269
 msgid ""
 "Mandatory arguments to long options are mandatory for short options too.\n"
 msgstr ""
-"Obligatoriska argument till lÂnga flaggor ‰r obligatoriska ‰ven fˆr de "
+"Obligatoriska argument till l√•nga flaggor √§r obligatoriska √§ven f√∂r de "
 "korta.\n"
 
-#: src/getargs.c:291
+#: src/getargs.c:272
 msgid "The same is true for optional arguments.\n"
-msgstr "Detsamma g‰ller valfria argument.\n"
+msgstr "Detsamma g√§ller valfria argument.\n"
 
-#: src/getargs.c:295
+#: src/getargs.c:276
 msgid ""
 "\n"
 "Operation modes:\n"
@@ -150,51 +183,54 @@ msgid ""
 "      --print-datadir        output directory containing skeletons and XSLT\n"
 "  -y, --yacc                 emulate POSIX Yacc\n"
 "  -W, --warnings[=CATEGORY]  report the warnings falling in CATEGORY\n"
+"  -f, --feature[=FEATURE]    activate miscellaneous features\n"
 "\n"
 msgstr ""
 "\n"
-"Arbetsl‰gen:\n"
-"  -h, --help                 visa denna hj‰lptext och avsluta\n"
+"Arbetsl√§gen:\n"
+"  -h, --help                 visa denna hj√§lptext och avsluta\n"
 "  -V, --version              visa versionsinformation och avsluta\n"
-"      --print-localedir      skriv katalogen som innehÂller lokalberoende "
+"      --print-localedir      skriv katalogen som inneh√•ller lokalberoende "
 "data\n"
-"      --print-datadir        skriv katalogen som innehÂller skelett och "
+"      --print-datadir        skriv katalogen som inneh√•ller skelett och "
 "XSLT\n"
 "  -y, --yacc                 emulera POSIX-Yacc\n"
 "  -W, --warnings[=KATEGORI]  rapportera varningarna som faller inom "
 "KATEGORI\n"
+"  -f, --feature[=FUNKTION]   aktivera diverse funktioner\n"
 "\n"
 
-#: src/getargs.c:307
+#: src/getargs.c:289
 #, c-format
 msgid ""
 "Parser:\n"
 "  -L, --language=LANGUAGE          specify the output programming language\n"
-"                                   (this is an experimental feature)\n"
 "  -S, --skeleton=FILE              specify the skeleton to use\n"
-"  -t, --debug                      instrument the parser for debugging\n"
+"  -t, --debug                      instrument the parser for tracing\n"
+"                                   same as '-Dparse.trace'\n"
 "      --locations                  enable location support\n"
-"  -D, --define=NAME[=VALUE]        similar to `%define NAME \"VALUE\"'\n"
-"  -F, --force-define=NAME[=VALUE]  override `%define NAME \"VALUE\"'\n"
+"  -D, --define=NAME[=VALUE]        similar to '%define NAME \"VALUE\"'\n"
+"  -F, --force-define=NAME[=VALUE]  override '%define NAME \"VALUE\"'\n"
 "  -p, --name-prefix=PREFIX         prepend PREFIX to the external symbols\n"
-"  -l, --no-lines                   don't generate `#line' directives\n"
+"                                   deprecated by '-Dapi.prefix=PREFIX'\n"
+"  -l, --no-lines                   don't generate '#line' directives\n"
 "  -k, --token-table                include a table of token names\n"
-"\n"
 msgstr ""
 "Parser:\n"
-"  -L, --language=SPR≈K             ange programsprÂk fˆr utmatning\n"
-"                                   (detta ‰r en experimentell funktion)\n"
-"  -S, --skeleton=FIL               ange skelettfilen som skall anv‰ndas\n"
-"  -t, --debug                      instrumentera parsern fˆr felsˆkning\n"
-"      --locations                  aktivera stˆd fˆr l‰gen\n"
-"  -D, --define=NAMN[=VƒRDE]        motsvarar '%define NAMN \"VƒRDE\"'\n"
-"  -F, --force-define=NAMN[=VƒRDE]  Âsidos‰tt '%define NAMN \"VƒRDE\"'\n"
-"  -p, --name-prefix=PREFIX         l‰gg till PREFIX fˆre externa symboler\n"
+"  -L, --language=SPR√ÖK             ange programspr√•k f√∂r utmatning\n"
+"  -S, --skeleton=FIL               ange skelettfilen som skall anv√§ndas\n"
+"  -t, --debug                      instrumentera parsern f√∂r sp√•rning\n"
+"                                   samma som ‚Äù-Dparse.trace‚Äù\n"
+"      --locations                  aktivera st√∂d f√∂r l√§gen\n"
+"  -D, --define=NAMN[=V√ÑRDE]        motsvarar '%define NAMN \"V√ÑRDE\"'\n"
+"  -F, --force-define=NAMN[=V√ÑRDE]  √•sidos√§tt '%define NAMN \"V√ÑRDE\"'\n"
+"  -p, --name-prefix=PREFIX         l√§gg till PREFIX f√∂re externa symboler\n"
+"                                   undanbedes till f√∂rm√•n f√∂r\n"
+"                                   '-Dapi.prefix=PREFIX'\n"
 "  -l, --no-lines                   generera inte \"#line\"-direktiv\n"
-"  -k, --token-table                inkludera en tabell ˆver elementnamn\n"
-"\n"
+"  -k, --token-table                inkludera en tabell √∂ver elementnamn\n"
 
-#: src/getargs.c:324
+#: src/getargs.c:307
 msgid ""
 "Output:\n"
 "      --defines[=FILE]       also produce a header file\n"
@@ -202,138 +238,170 @@ msgid ""
 "Yacc)\n"
 "  -r, --report=THINGS        also produce details on the automaton\n"
 "      --report-file=FILE     write report to FILE\n"
-"  -v, --verbose              same as `--report=state'\n"
+"  -v, --verbose              same as '--report=state'\n"
 "  -b, --file-prefix=PREFIX   specify a PREFIX for output files\n"
 "  -o, --output=FILE          leave output to FILE\n"
 "  -g, --graph[=FILE]         also output a graph of the automaton\n"
 "  -x, --xml[=FILE]           also output an XML report of the automaton\n"
 "                             (the XML schema is experimental)\n"
-"\n"
 msgstr ""
 "Utdata:\n"
-"      --defines[=FIL]        skapa ocksÂ en huvudfil\n"
-"  -d                         detsamma, utan att kunna ange FIL (fˆr POSIX-"
+"      --defines[=FIL]        skapa ocks√• en huvudfil\n"
+"  -d                         detsamma, utan att kunna ange FIL (f√∂r POSIX-"
 "Yacc)\n"
-"  -r, --report=SAKER         skapa ocksÂ detaljer om automaten\n"
+"  -r, --report=SAKER         skapa ocks√• detaljer om automaten\n"
 "      --report-file=FIL      skriv en rapport till FIL\n"
-"  -v, --verbose              samma som \"--report=state\"\n"
-"  -b, --file-prefix=PREFIX   ange ett PREFIX fˆr utdatafiler\n"
-"  -o, --output=FIL           l‰gg utdata i FIL\n"
-"  -g, --graph[=FIL]          skapa ocksÂ en graf av automaten\n"
-"  -x, --xml[=FIL]            skapa ocksÂ en XML-rapport om automaten\n"
-"                             (XML-schemat ‰r experimentellt)\n"
-"\n"
+"  -v, --verbose              samma som ‚Äù--report=state‚Äù\n"
+"  -b, --file-prefix=PREFIX   ange ett PREFIX f√∂r utdatafiler\n"
+"  -o, --output=FIL           l√§gg utdata i FIL\n"
+"  -g, --graph[=FIL]          skapa ocks√• en graf av automaten\n"
+"  -x, --xml[=FIL]            skapa ocks√• en XML-rapport om automaten\n"
+"                             (XML-schemat √§r experimentellt)\n"
+
+#: src/getargs.c:322
+#, c-format
+msgid ""
+"Warning categories include:\n"
+"  'midrule-values'    unset or unused midrule values\n"
+"  'yacc'              incompatibilities with POSIX Yacc\n"
+"  'conflicts-sr'      S/R conflicts (enabled by default)\n"
+"  'conflicts-rr'      R/R conflicts (enabled by default)\n"
+"  'deprecated'        obsolete constructs\n"
+"  'empty-rule'        empty rules without %empty\n"
+"  'precedence'        useless precedence and associativity\n"
+"  'other'             all other warnings (enabled by default)\n"
+"  'all'               all the warnings except 'yacc'\n"
+"  'no-CATEGORY'       turn off warnings in CATEGORY\n"
+"  'none'              turn off all the warnings\n"
+"  'error[=CATEGORY]'  treat warnings as errors\n"
+msgstr ""
+"Varningskategorier innefattar:\n"
+"  ‚Äùmidrule-values‚Äù  ej satta eller oanv√§nda v√§rden mitt i regler\n"
+"  ‚Äùyacc‚Äù            inkompatibiliteter med POSIX Yacc\n"
+"  ‚Äùconflicts-sr‚Äù    S/R-konflikter (normalt aktivt)\n"
+"  ‚Äùconflicts-rr‚Äù    R/R-konflikter (normalt aktivt)\n"
+"  ‚Äùdeprecated‚Äù      f√∂r√•ldrade konstruktioner\n"
+"  ‚Äùempty-rule‚Äù      tomma regler utan %empty\n"
+"  ‚Äùprecedence‚Äù      oanv√§ndbar precedens och associativitet\n"
+"  ‚Äùother‚Äù           alla andra varningar (normalt aktivt)\n"
+"  ‚Äùall‚Äù             alla varningarna utom ‚Äùyacc‚Äù\n"
+"  ‚Äùno-KATEGORI‚Äù     sl√• av varningar i KATEGORI\n"
+"  ‚Äùnone‚Äù            sl√• av alla varningarna\n"
+"  ‚Äùerror‚Äù           behandla varningar som fel\n"
 
 #: src/getargs.c:339
 msgid ""
-"Warning categories include:\n"
-"  `midrule-values'  unset or unused midrule values\n"
-"  `yacc'            incompatibilities with POSIX Yacc\n"
-"  `conflicts-sr'    S/R conflicts (enabled by default)\n"
-"  `conflicts-rr'    R/R conflicts (enabled by default)\n"
-"  `other'           all other warnings (enabled by default)\n"
-"  `all'             all the warnings\n"
-"  `no-CATEGORY'     turn off warnings in CATEGORY\n"
-"  `none'            turn off all the warnings\n"
-"  `error'           treat warnings as errors\n"
-"\n"
-msgstr ""
-"Varningskategorier innefattar:\n"
-"  \"midrule-values\"  ej satta eller oanv‰nda v‰rden mitt i regler\n"
-"  \"yacc\"            inkompatibiliteter med POSIX Yacc\n"
-"  \"conflicts-sr\"    S/R-konflikter (normalt aktivt)\n"
-"  \"conflicts-rr\"    R/R-konflikter (normalt aktivt)\n"
-"  \"other\"           alla andra varningar (normalt aktivt)\n"
-"  \"all\"             alla varningarna\n"
-"  \"no-KATEGORI\"     slÂ av varningar i KATEGORI\n"
-"  \"none\"            slÂ av alla varningarna\n"
-"  \"error\"           behandla varningar som fel\n"
-"\n"
-
-#: src/getargs.c:353
-msgid ""
 "THINGS is a list of comma separated words that can include:\n"
-"  `state'        describe the states\n"
-"  `itemset'      complete the core item sets with their closure\n"
-"  `lookahead'    explicitly associate lookahead tokens to items\n"
-"  `solved'       describe shift/reduce conflicts solving\n"
-"  `all'          include all the above information\n"
-"  `none'         disable the report\n"
+"  'state'        describe the states\n"
+"  'itemset'      complete the core item sets with their closure\n"
+"  'lookahead'    explicitly associate lookahead tokens to items\n"
+"  'solved'       describe shift/reduce conflicts solving\n"
+"  'all'          include all the above information\n"
+"  'none'         disable the report\n"
 msgstr ""
-"SAKER ‰r en lista med kommaseparerade ord som kan innehÂlla:\n"
-"  \"state\"        beskriv tillstÂnden\n"
-"  \"itemset\"      komplettera k‰rnobjektm‰ngderna med sina hˆljen\n"
-"  \"lookahead\"    koppla uttryckligen framÂtblickande element till objekt\n"
-"  \"solved\"       beskriv lˆsningar av skifta/reducerakonflikter\n"
-"  \"all\"          inkludera all ovanstÂende information\n"
-"  \"none\"         avaktivera rapporten\n"
+"SAKER √§r en lista med kommaseparerade ord som kan inneh√•lla:\n"
+"  ‚Äùstate‚Äù        beskriv tillst√•nden\n"
+"  ‚Äùitemset‚Äù      komplettera k√§rnobjektm√§ngderna med sina h√∂ljen\n"
+"  ‚Äùlookahead‚Äù    koppla uttryckligen fram√•tblickande element till objekt\n"
+"  ‚Äùsolved‚Äù       beskriv l√∂sningar av skifta/reducerakonflikter\n"
+"  ‚Äùall‚Äù          inkludera all ovanst√•ende information\n"
+"  ‚Äùnone‚Äù         avaktivera rapporten\n"
 
-#: src/getargs.c:363
-#, c-format
+#: src/getargs.c:350
 msgid ""
-"\n"
-"Report bugs to <%s>.\n"
+"FEATURE is a list of comma separated words that can include:\n"
+"  'caret'        show errors with carets\n"
+"  'all'          all of the above\n"
+"  'none'         disable all of the above\n"
+"  "
 msgstr ""
-"\n"
-"Rapportera fel till <%s>.\n"
-"Rapportera synpunkter pÂ ˆvers‰ttningen till <tp-sv@listor.tp-sv.se>.\n"
+"FUNKTION √§r en lista av kommaseparerade ord som kan inkludera:\n"
+"  ‚Äùcaret‚Äù        visa alla fel med cirkumflex\n"
+"  ‚Äùall‚Äù          alla ovanst√•ende\n"
+"  ‚Äùnone‚Äù         avaktivera alla ovanst√•ende\n"
+"  "
 
-#: src/getargs.c:379
+#: src/getargs.c:358
+#, c-format
+msgid "Report bugs to <%s>.\n"
+msgstr "Rapportera fel till <%s>.\n"
+
+#: src/getargs.c:359
+#, c-format
+msgid "%s home page: <%s>.\n"
+msgstr "%s hemsida: <%s>.\n"
+
+#: src/getargs.c:360
+msgid "General help using GNU software: <http://www.gnu.org/gethelp/>.\n"
+msgstr ""
+"Allm√§n hj√§lp om att anv√§nda GNU-program: <http://www.gnu.org/gethelp/>.\n"
+
+#. TRANSLATORS: Replace LANG_CODE in this URL with your language
+#. code <http://translationproject.org/team/LANG_CODE.html> to
+#. form one of the URLs at http://translationproject.org/team/.
+#. Otherwise, replace the entire URL with your translation team's
+#. email address.
+#: src/getargs.c:373
+msgid "Report translation bugs to <http://translationproject.org/team/>.\n"
+msgstr ""
+"Rapportera synpunkter p√• √∂vers√§ttningen till <tp-sv@listor.tp-sv.se>.\n"
+
+#: src/getargs.c:375
+msgid "For complete documentation, run: info bison.\n"
+msgstr "F√∂r fullst√§ndig dokumentation, k√∂r: info bison.\n"
+
+#: src/getargs.c:391
 #, c-format
 msgid "bison (GNU Bison) %s"
 msgstr "bison (GNU Bison) %s"
 
-#: src/getargs.c:381
+#: src/getargs.c:393
 msgid "Written by Robert Corbett and Richard Stallman.\n"
 msgstr "Skriven av Robert Corbett och Richard Stallman.\n"
 
-#: src/getargs.c:385
+#: src/getargs.c:397
 #, c-format
 msgid "Copyright (C) %d Free Software Foundation, Inc.\n"
-msgstr "Copyright © %d Free Software Foundation, Inc.\n"
+msgstr "Copyright ¬© %d Free Software Foundation, Inc.\n"
 
-#: src/getargs.c:388
+#: src/getargs.c:400
 msgid ""
 "This is free software; see the source for copying conditions.  There is NO\n"
 "warranty; not even for MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.\n"
 msgstr ""
-"Detta ‰r fri programvara, se k‰llkoden fˆr kopieringsvillkor.  Det\n"
-"finns INGEN garanti, inte ens fˆr SƒLJBARHET eller LƒMPLIGHET F÷R ETT\n"
-"SPECIELLT ƒNDAM≈L.\n"
+"Detta √§r fri programvara, se k√§llkoden f√∂r kopieringsvillkor.  Det\n"
+"finns INGEN garanti, inte ens f√∂r S√ÑLJBARHET eller L√ÑMPLIGHET F√ñR ETT\n"
+"SPECIELLT √ÑNDAM√ÖL.\n"
 
-#: src/getargs.c:409
+#: src/getargs.c:422
 #, c-format
 msgid "multiple skeleton declarations are invalid"
-msgstr "flera skelettdeklarationer ‰r inte tillÂtet"
+msgstr "flera skelettdeklarationer √§r inte till√•tet"
 
-#: src/getargs.c:427
+#: src/getargs.c:440
 #, c-format
-msgid "invalid language `%s'"
-msgstr "ogiltigt sprÂk \"%s\""
+msgid "%s: invalid language"
+msgstr "%s: ogiltigt spr√•k"
 
-#: src/getargs.c:430
+#: src/getargs.c:443
 msgid "multiple language declarations are invalid"
-msgstr "flera sprÂkdeklarationer ‰r inte tillÂtet"
+msgstr "flera spr√•kdeklarationer √§r inte till√•tet"
 
-#: src/getargs.c:682
+#: src/getargs.c:724
 #, c-format
-msgid "missing operand after `%s'"
-msgstr "saknad operand efter \"%s\""
+msgid "%s: missing operand"
+msgstr "%s: saknad operand"
 
-#: src/getargs.c:684
+#: src/getargs.c:726
 #, c-format
-msgid "extra operand `%s'"
-msgstr "extra operand \"%s\""
+msgid "extra operand %s"
+msgstr "extra operand %s"
 
-#: src/gram.c:114
-msgid "empty"
-msgstr "tom"
-
-#: src/gram.c:203
+#: src/gram.c:185
 msgid "Grammar"
 msgstr "Grammatik"
 
-#: src/graphviz.c:43
+#: src/graphviz.c:45
 #, c-format
 msgid ""
 "// Generated by %s.\n"
@@ -346,7 +414,7 @@ msgstr ""
 "// Hemsida: <%s>.\n"
 "\n"
 
-#: src/location.c:93 src/scan-gram.l:855
+#: src/location.c:93 src/scan-gram.l:926
 #, c-format
 msgid "line number overflow"
 msgstr "radnummerspill"
@@ -356,534 +424,554 @@ msgstr "radnummerspill"
 msgid "column number overflow"
 msgstr "kolumnnummerspill"
 
-#: src/main.c:134
+#: src/main.c:146
 msgid "rule useless in parser due to conflicts"
-msgstr "oanv‰ndbar regel i parsern pÂ grund av konflikter"
+msgstr "oanv√§ndbar regel i parsern p√• grund av konflikter"
 
-#: src/muscle-tab.c:428
+#: src/muscle-tab.c:514
 #, c-format
-msgid "%%define variable `%s' redefined"
-msgstr "%%define-variabeln \"%s\" omdefinierad"
+msgid "%%define variable %s redefined"
+msgstr "%%define-variabeln %s omdefinierad"
 
-#: src/muscle-tab.c:431
+#: src/muscle-tab.c:518
 #, c-format
 msgid "previous definition"
-msgstr "fˆregÂende definition"
+msgstr "f√∂reg√•ende definition"
 
-#: src/muscle-tab.c:470
+#: src/muscle-tab.c:568 src/muscle-tab.c:669 src/muscle-tab.c:732
 #, c-format
-msgid ""
-"undefined %%define variable `%s' passed to muscle_percent_define_get_loc"
-msgstr ""
-"odefinierad %%define-variabel \"%s\" skickad till "
-"muscle_percent_define_get_loc"
+msgid "%s: undefined %%define variable %s"
+msgstr "%s: odefinierad  %%define-variabel %s"
 
-#: src/muscle-tab.c:484
+#: src/muscle-tab.c:663
 #, c-format
-msgid ""
-"undefined %%define variable `%s' passed to muscle_percent_define_get_syncline"
-msgstr ""
-"odefinierad %%define-variabel \"%s\" skickad till "
-"muscle_percent_define_get_syncline"
+msgid "invalid value for %%define Boolean variable %s"
+msgstr "ogiltigt v√§rde f√∂r boolesk %%define-variabel %s"
 
-#: src/muscle-tab.c:530
+#: src/muscle-tab.c:717
 #, c-format
-msgid "invalid value for %%define Boolean variable `%s'"
-msgstr "ogiltigt v‰rde fˆr boolesk %%define-variabel \"%s\""
+msgid "invalid value for %%define variable %s: %s"
+msgstr "ogiltigt v√§rde f√∂r %%define-variabeln %s: %s"
 
-#: src/muscle-tab.c:536
+#: src/muscle-tab.c:722
 #, c-format
-msgid ""
-"undefined %%define variable `%s' passed to muscle_percent_define_flag_if"
-msgstr ""
-"odefinierad %%define-variabel \"%s\" skickad till "
-"muscle_percent_define_flag_if"
+msgid "accepted value: %s"
+msgstr "accepterat v√§rde: %s"
 
-#: src/muscle-tab.c:588
-#, c-format
-msgid "invalid value for %%define variable `%s': `%s'"
-msgstr "ogiltigt v‰rde fˆr %%define-variabeln \"%s\": \"%s\""
-
-#: src/muscle-tab.c:591
-#, c-format
-msgid "accepted value: `%s'"
-msgstr "accepterat v‰rde: \"%s\""
-
-#: src/muscle-tab.c:601
-#, c-format
-msgid ""
-"undefined %%define variable `%s' passed to muscle_percent_define_check_values"
-msgstr ""
-"odefinierad %%define-variabel \"%s\" skickad till "
-"muscle_percent_define_check_values"
-
-#: src/parse-gram.y:733
+#: src/parse-gram.y:809
 #, c-format
 msgid "missing identifier in parameter declaration"
 msgstr "identiferare saknas i parameterdeklaration"
 
-#: src/print.c:48
+#: src/print.c:47
 #, c-format
 msgid " type %d is %s\n"
-msgstr " typ %d ‰r %s\n"
-
-#: src/print.c:165
-#, c-format
-msgid "shift, and go to state %d\n"
-msgstr "skifta, och gÂ till tillstÂnd %d\n"
+msgstr " typ %d √§r %s\n"
 
 #: src/print.c:167
 #, c-format
-msgid "go to state %d\n"
-msgstr "gÂ till tillstÂnd %d\n"
+msgid "shift, and go to state %d\n"
+msgstr "skifta, och g√• till tillst√•nd %d\n"
 
-#: src/print.c:204
+#: src/print.c:169
+#, c-format
+msgid "go to state %d\n"
+msgstr "g√• till tillst√•nd %d\n"
+
+#: src/print.c:206
 msgid "error (nonassociative)\n"
 msgstr "fel (ickeassociativ)\n"
 
-#: src/print.c:227
+#: src/print.c:229
 #, c-format
 msgid "reduce using rule %d (%s)"
 msgstr "reducera med regel %d (%s)"
 
-#: src/print.c:229
+#: src/print.c:231
 #, c-format
 msgid "accept"
 msgstr "acceptera"
 
-#: src/print.c:265 src/print.c:339
+#: src/print.c:267 src/print.c:341
 msgid "$default"
 msgstr "$standard"
 
-#: src/print.c:374
+#: src/print.c:376 src/print_graph.c:61
 #, c-format
-msgid "state %d"
-msgstr "tillstÂnd %d"
+msgid "State %d"
+msgstr "Tillst√•nd %d"
 
-#: src/print.c:410
+#: src/print.c:412
 msgid "Terminals, with rules where they appear"
-msgstr "Terminaler, med regler d‰r de fˆrekommer"
+msgstr "Terminaler, med regler d√§r de f√∂rekommer"
 
-#: src/print.c:437
+#: src/print.c:439
 msgid "Nonterminals, with rules where they appear"
-msgstr "Icketerminaler, med regler d‰r de fˆrekommer"
+msgstr "Icketerminaler, med regler d√§r de f√∂rekommer"
 
-#: src/print.c:466
+#: src/print.c:468
 #, c-format
 msgid " on left:"
-msgstr " till v‰nster:"
+msgstr " till v√§nster:"
 
-#: src/print.c:483
+#: src/print.c:485
 #, c-format
 msgid " on right:"
-msgstr " till hˆger:"
+msgstr " till h√∂ger:"
 
-#: src/print.c:511
+#: src/print.c:513
 msgid "Rules useless in parser due to conflicts"
-msgstr "Oanv‰ndbara regler i parser pÂ grund av konflikter"
+msgstr "Oanv√§ndbara regler i parser p√• grund av konflikter"
 
-#: src/reader.c:63
+#: src/reader.c:62
 #, c-format
 msgid "multiple %s declarations"
 msgstr "flera %s-deklarationer"
 
 #: src/reader.c:133
 #, c-format
-msgid "result type clash on merge function `%s': <%s> != <%s>"
-msgstr "resultattypskonflikt vid sammanslagningsfunktion \"%s\": <%s> != <%s>"
+msgid "result type clash on merge function %s: <%s> != <%s>"
+msgstr "resultattypskonflikt vid sammanslagningsfunktion %s: <%s> != <%s>"
 
-#: src/reader.c:136 src/symtab.c:155 src/symtab.c:163 src/symtab.c:930
-#: src/symtab.c:943 src/symtab.c:956 src/symtab.c:969
-#, c-format
-msgid "previous declaration"
-msgstr "fˆregÂende deklaration"
-
-#: src/reader.c:202
+#: src/reader.c:206
 #, c-format
 msgid "duplicated symbol name for %s ignored"
-msgstr "duplicerat symbolnamn fˆr %s ignorerat"
+msgstr "duplicerat symbolnamn f√∂r %s ignorerat"
 
-#: src/reader.c:246
+#: src/reader.c:250
 #, c-format
 msgid "rule given for %s, which is a token"
-msgstr "regel given fˆr %s, som ‰r ett element"
+msgstr "regel given f√∂r %s, som √§r ett element"
 
-#: src/reader.c:301
+#: src/reader.c:306
 #, c-format
 msgid "type clash on default action: <%s> != <%s>"
-msgstr "typkonflikt fˆr standardÂtg‰rd: <%s> <%s>"
+msgstr "typkonflikt f√∂r standard√•tg√§rd: <%s> <%s>"
 
-#: src/reader.c:307
+#: src/reader.c:312
 #, c-format
 msgid "empty rule for typed nonterminal, and no action"
-msgstr "tom regel fˆr typad icketerminal, och ingen Âtg‰rd"
+msgstr "tom regel f√∂r typad icketerminal, och ingen √•tg√§rd"
 
-#: src/reader.c:325
+#: src/reader.c:329
 #, c-format
 msgid "unused value: $%d"
-msgstr "oanv‰nt v‰rde: $%d"
+msgstr "oanv√§nt v√§rde: $%d"
 
-#: src/reader.c:327
+#: src/reader.c:331
+#, c-format
 msgid "unset value: $$"
-msgstr "ej satt v‰rde: $$"
+msgstr "ej satt v√§rde: $$"
 
-#: src/reader.c:338
+#: src/reader.c:340
+#, c-format
+msgid "%%empty on non-empty rule"
+msgstr "%%empty p√• en icketom regel"
+
+#: src/reader.c:346
+#, c-format
+msgid "empty rule without %%empty"
+msgstr "tom regel utan %%empty"
+
+#: src/reader.c:355
 #, c-format
 msgid "token for %%prec is not defined: %s"
-msgstr "elementet fˆr %%prec ‰r inte definierat: %s"
+msgstr "elementet f√∂r %%prec √§r inte definierat: %s"
 
-#: src/reader.c:428 src/reader.c:442 src/reader.c:455
-#, c-format
-msgid "only one %s allowed per rule"
-msgstr "endast en %s tillÂts per regel"
-
-#: src/reader.c:438 src/reader.c:453
+#: src/reader.c:473 src/reader.c:495
 #, c-format
 msgid "%s affects only GLR parsers"
-msgstr "%s pÂverkar endast GLR-parsrar"
+msgstr "%s p√•verkar endast GLR-parsrar"
 
-#: src/reader.c:440
+#: src/reader.c:476
 #, c-format
 msgid "%s must be followed by positive number"
-msgstr "%s mÂste fˆljas av ett positivt tal"
+msgstr "%s m√•ste f√∂ljas av ett positivt tal"
 
-#: src/reader.c:551
+#: src/reader.c:602
 #, c-format
 msgid "rule is too long"
-msgstr "regeln ‰r fˆr lÂng"
+msgstr "regeln √§r f√∂r l√•ng"
 
-#: src/reader.c:669
+#: src/reader.c:718
 #, c-format
 msgid "no rules in the input grammar"
 msgstr "inga regler i ingrammatiken"
 
-#: src/reduce.c:242
+#: src/reduce.c:241
 msgid "rule useless in grammar"
-msgstr "oanv‰ndbar regel i grammatiken"
+msgstr "oanv√§ndbar regel i grammatiken"
 
 #: src/reduce.c:303
 #, c-format
 msgid "nonterminal useless in grammar: %s"
-msgstr "oanv‰ndbar icketerminal i grammatiken: %s"
+msgstr "oanv√§ndbar icketerminal i grammatiken: %s"
 
 #: src/reduce.c:351
 msgid "Nonterminals useless in grammar"
-msgstr "Oanv‰ndbara icketerminaler i grammatiken"
+msgstr "Oanv√§ndbara icketerminaler i grammatiken"
 
 #: src/reduce.c:364
 msgid "Terminals unused in grammar"
-msgstr "Oanv‰nda terminaler i grammatiken"
+msgstr "Oanv√§nda terminaler i grammatiken"
 
 #: src/reduce.c:373
 msgid "Rules useless in grammar"
-msgstr "Oanv‰ndbara regler i grammatiken"
+msgstr "Oanv√§ndbara regler i grammatiken"
 
 #: src/reduce.c:386
 #, c-format
 msgid "%d nonterminal useless in grammar"
 msgid_plural "%d nonterminals useless in grammar"
-msgstr[0] "%d oanv‰ndbar icketerminal i grammatiken"
-msgstr[1] "%d oanv‰ndbara icketerminaler i grammatiken"
+msgstr[0] "%d oanv√§ndbar icketerminal i grammatiken"
+msgstr[1] "%d oanv√§ndbara icketerminaler i grammatiken"
 
 #: src/reduce.c:391
 #, c-format
 msgid "%d rule useless in grammar"
 msgid_plural "%d rules useless in grammar"
-msgstr[0] "%d oanv‰ndbar regel i grammatiken"
-msgstr[1] "%d oanv‰ndbara regler i grammatiken"
+msgstr[0] "%d oanv√§ndbar regel i grammatiken"
+msgstr[1] "%d oanv√§ndbara regler i grammatiken"
 
 #: src/reduce.c:420
 #, c-format
 msgid "start symbol %s does not derive any sentence"
 msgstr "startsymbolen %s genererar inga meningar"
 
-#: src/scan-code.l:200
+#: src/scan-code.l:157
 #, c-format
-msgid "stray `$'"
-msgstr "vilsekommet \"$\""
+msgid "stray '%s'"
+msgstr "vilsekommet \"%s\""
 
-#: src/scan-code.l:205
-#, c-format
-msgid "stray `@'"
-msgstr "vilsekommet \"@\""
-
-#: src/scan-code.l:230
-#, c-format
-msgid "a `;' might be needed at the end of action code"
-msgstr "ett \";\" kan behˆvas i slutet av Âtg‰rdskoden"
-
-#: src/scan-code.l:231
-#, c-format
-msgid "future versions of Bison will not add the `;'"
-msgstr "framtida versioner av Bison kommer inte l‰gga till \";\""
-
-#: src/scan-code.l:253
-#, c-format
-msgid "use of YYFAIL, which is deprecated and will be removed"
-msgstr "anv‰ndning av YYFAIL, som avrÂdes ifrÂn och kommer tas bort"
-
-#: src/scan-code.l:438 src/scan-code.l:441
+#: src/scan-code.l:339
 #, c-format
 msgid "refers to: %c%s at %s"
 msgstr "refererar till: %c%s vid %s"
 
-#: src/scan-code.l:457
+#: src/scan-code.l:362
 #, c-format
 msgid "possibly meant: %c"
-msgstr "mˆjligen avsett: %c"
+msgstr "m√∂jligen avsett: %c"
 
-#: src/scan-code.l:466
+#: src/scan-code.l:371
 #, c-format
 msgid ", hiding %c"
-msgstr ", dˆljer %c"
+msgstr ", d√∂ljer %c"
 
-#: src/scan-code.l:474
+#: src/scan-code.l:379
 #, c-format
 msgid " at %s"
 msgstr " vid %s"
 
-#: src/scan-code.l:479
+#: src/scan-code.l:383
 #, c-format
 msgid ", cannot be accessed from mid-rule action at $%d"
-msgstr ", kan inte nÂs frÂn Âtg‰rd mitt i regeln vid $%d"
+msgstr ", kan inte n√•s fr√•n √•tg√§rd mitt i regeln vid $%d"
 
-#: src/scan-code.l:531 src/scan-gram.l:777
+#: src/scan-code.l:440 src/scan-gram.l:849
 #, c-format
 msgid "integer out of range: %s"
-msgstr "heltal utanfˆr intervall: %s"
+msgstr "heltal utanf√∂r intervall: %s"
 
-#: src/scan-code.l:620
+#: src/scan-code.l:530
 #, c-format
 msgid "invalid reference: %s"
 msgstr "ogiltig referens: %s"
 
-#: src/scan-code.l:629
+#: src/scan-code.l:538
 #, c-format
-msgid "syntax error after `%c', expecting integer, letter, `_', `[', or `$'"
+msgid "syntax error after '%c', expecting integer, letter, '_', '[', or '$'"
 msgstr ""
-"syntaxfel efter \"%c\", siffra, bokstav, \"_\", \"[\" eller \"$\" fˆrv‰ntades"
+"syntaxfel efter \"%c\", siffra, bokstav, \"_\", \"[\" eller \"$\" f√∂rv√§ntades"
 
-#: src/scan-code.l:636
+#: src/scan-code.l:544
 #, c-format
 msgid "symbol not found in production before $%d: %.*s"
-msgstr "symbol inte funnen i produktion fˆre $%d: %.*s"
+msgstr "symbol inte funnen i produktion f√∂re $%d: %.*s"
 
-#: src/scan-code.l:643
+#: src/scan-code.l:549
 #, c-format
 msgid "symbol not found in production: %.*s"
 msgstr "symbol inte funnen i produktion: %.*s"
 
-#: src/scan-code.l:658
+#: src/scan-code.l:564
 #, c-format
 msgid "misleading reference: %s"
 msgstr "vilseledande referens: %s"
 
-#: src/scan-code.l:673
+#: src/scan-code.l:580
 #, c-format
 msgid "ambiguous reference: %s"
 msgstr "tvetydigt argument: %s"
 
-#: src/scan-code.l:732
+#: src/scan-code.l:616
 #, c-format
 msgid "explicit type given in untyped grammar"
 msgstr "explicit typ given i otypad grammatik"
 
-#: src/scan-code.l:757
+#: src/scan-code.l:675
 #, c-format
-msgid "$$ for the midrule at $%d of `%s' has no declared type"
-msgstr "$$ fˆr mitt-i-regeln vid $%d av \"%s\" har ingen deklarerad typ"
+msgid "$$ for the midrule at $%d of %s has no declared type"
+msgstr "$$ f√∂r mitt-i-regeln vid $%d av %s har ingen deklarerad typ"
 
-#: src/scan-code.l:762
+#: src/scan-code.l:681
 #, c-format
-msgid "$$ of `%s' has no declared type"
-msgstr "$$ fˆr \"%s\" har ingen deklarerad typ"
+msgid "$$ of %s has no declared type"
+msgstr "$$ f√∂r %s har ingen deklarerad typ"
 
-#: src/scan-code.l:784
+#: src/scan-code.l:704
 #, c-format
-msgid "$%s of `%s' has no declared type"
-msgstr "$%s fˆr \"%s\" har ingen deklarerad typ"
+msgid "$%s of %s has no declared type"
+msgstr "$%s f√∂r %s har ingen deklarerad typ"
 
-#: src/scan-gram.l:149
+#: src/scan-gram.l:180
 #, c-format
-msgid "stray `,' treated as white space"
+msgid "stray ',' treated as white space"
 msgstr "vilsekommet \",\" hanterat som blank"
 
-#: src/scan-gram.l:222
+#: src/scan-gram.l:270
 #, c-format
 msgid "invalid directive: %s"
 msgstr "ogiltigt direktiv: %s"
 
-#: src/scan-gram.l:250
+#: src/scan-gram.l:296
 #, c-format
 msgid "invalid identifier: %s"
 msgstr "ogiltig identifierare: %s"
 
-#: src/scan-gram.l:294
-#, c-format
-msgid "invalid character: %s"
-msgstr "ogiltigt tecken: %s"
+#: src/scan-gram.l:348
+msgid "invalid character"
+msgid_plural "invalid characters"
+msgstr[0] "ogiltigt tecken"
+msgstr[1] "ogiltiga tecken"
 
-#: src/scan-gram.l:352
-#, c-format
-msgid "unexpected identifier in bracketed name: %s"
-msgstr "ov‰ntad identifierare i namn inom klamrar: %s"
-
-#: src/scan-gram.l:374
-#, c-format
-msgid "an identifier expected"
-msgstr "en identifierare fˆrv‰ntades"
-
-#: src/scan-gram.l:377
-#, c-format
-msgid "invalid character in bracketed name: %s"
-msgstr "ogiltigt tecken efter namn i klamrar: %s"
-
-#: src/scan-gram.l:475 src/scan-gram.l:496
-#, c-format
-msgid "empty character literal"
-msgstr "tom teckenkonstant"
-
-#: src/scan-gram.l:480 src/scan-gram.l:501
-#, c-format
-msgid "extra characters in character literal"
-msgstr "extra bokst‰ver i teckenkonstant"
-
-#: src/scan-gram.l:512
+#: src/scan-gram.l:366
 #, c-format
 msgid "invalid null character"
 msgstr "ogiltigt nolltecken"
 
-#: src/scan-gram.l:525 src/scan-gram.l:535 src/scan-gram.l:555
+#: src/scan-gram.l:419
+#, c-format
+msgid "unexpected identifier in bracketed name: %s"
+msgstr "ov√§ntad identifierare i namn inom klamrar: %s"
+
+#: src/scan-gram.l:441
+#, c-format
+msgid "an identifier expected"
+msgstr "en identifierare f√∂rv√§ntades"
+
+#: src/scan-gram.l:446
+msgid "invalid character in bracketed name"
+msgid_plural "invalid characters in bracketed name"
+msgstr[0] "ogiltigt tecken i namn i klamrar"
+msgstr[1] "ogiltiga tecken i namn i klamrar"
+
+#: src/scan-gram.l:538
+#, c-format
+msgid "empty character literal"
+msgstr "tom teckenkonstant"
+
+#: src/scan-gram.l:544
+#, c-format
+msgid "extra characters in character literal"
+msgstr "extra bokst√§ver i teckenkonstant"
+
+#: src/scan-gram.l:590 src/scan-gram.l:600 src/scan-gram.l:620
 #, c-format
 msgid "invalid number after \\-escape: %s"
 msgstr "ogiltigt tal efter \\-specialsekvens: %s"
 
-#: src/scan-gram.l:567
+#: src/scan-gram.l:632
 #, c-format
 msgid "invalid character after \\-escape: %s"
 msgstr "ogiltigt tecken efter \\-specialsekvens: %s"
 
-#: src/scan-gram.l:887
+#: src/scan-gram.l:978
 #, c-format
-msgid "missing `%s' at end of file"
-msgstr "saknat \"%s\" vid filslut"
+msgid "missing %s at end of file"
+msgstr "saknat %s vid filslut"
 
-#: src/scan-gram.l:898
+#: src/scan-gram.l:989
 #, c-format
-msgid "missing `%s' at end of line"
-msgstr "saknat \"%s\" vid radslut"
+msgid "missing %s at end of line"
+msgstr "saknat %s vid radslut"
 
-#: src/scan-skel.l:145
+#: src/scan-skel.l:139
 #, c-format
 msgid "unclosed %s directive in skeleton"
 msgstr "oavslutat %s-direktiv i skelettet"
 
-#: src/scan-skel.l:290
+#: src/scan-skel.l:256
 #, c-format
 msgid "too few arguments for %s directive in skeleton"
-msgstr "fˆr fÂ argument till %s-direktiv i skelettet"
+msgstr "f√∂r f√• argument till %s-direktiv i skelettet"
 
-#: src/scan-skel.l:297
+#: src/scan-skel.l:263
 #, c-format
 msgid "too many arguments for %s directive in skeleton"
-msgstr "fˆr mÂnga argument till %s-direktiv i skelettet"
+msgstr "f√∂r m√•nga argument till %s-direktiv i skelettet"
 
-#: src/symlist.c:211
+#: src/symlist.c:204
 #, c-format
 msgid "invalid $ value: $%d"
-msgstr "felaktigt $-v‰rde: $%d"
+msgstr "felaktigt $-v√§rde: $%d"
 
-#: src/symtab.c:72
+#: src/symtab.c:75
 #, c-format
 msgid "POSIX Yacc forbids dashes in symbol names: %s"
-msgstr "POSIX-Yacc fˆrbjuder bindestreck i symbolnamn: %s"
+msgstr "POSIX-Yacc f√∂rbjuder bindestreck i symbolnamn: %s"
 
-#: src/symtab.c:92
+#: src/symtab.c:97
 #, c-format
 msgid "too many symbols in input grammar (limit is %d)"
-msgstr "fˆr mÂnga symboler i ingrammatiken (gr‰nsen ‰r %d)"
+msgstr "f√∂r m√•nga symboler i ingrammatiken (gr√§nsen √§r %d)"
 
-#: src/symtab.c:154
+#: src/symtab.c:214
 #, c-format
 msgid "%s redeclaration for %s"
-msgstr "%s-omdeklaration fˆr %s"
+msgstr "%s-omdeklaration f√∂r %s"
 
-#: src/symtab.c:162
+#: src/symtab.c:226
 #, c-format
 msgid "%s redeclaration for <%s>"
-msgstr "%s-omdeklaration fˆr <%s>"
+msgstr "%s-omdeklaration f√∂r <%s>"
 
-#: src/symtab.c:329
+#: src/symtab.c:355
 #, c-format
 msgid "symbol %s redefined"
 msgstr "symbolen %s omdefinierad"
 
-#: src/symtab.c:343
+#: src/symtab.c:370
 #, c-format
 msgid "symbol %s redeclared"
 msgstr "symbolen %s omdeklarerad"
 
-#: src/symtab.c:364
+#: src/symtab.c:392
 #, c-format
 msgid "redefining user token number of %s"
-msgstr "omdefinition av elementnummer fˆr %s"
+msgstr "omdefinition av elementnummer f√∂r %s"
 
-#: src/symtab.c:392
+#: src/symtab.c:422
 #, c-format
 msgid "symbol %s is used, but is not defined as a token and has no rules"
 msgstr ""
-"symbolen %s anv‰nds, men ‰r inte definierad som ett element och har inga "
+"symbolen %s anv√§nds, men √§r inte definierad som ett element och har inga "
 "regler"
 
-#: src/symtab.c:412
+#: src/symtab.c:460
 #, c-format
-msgid "symbol `%s' used more than once as a literal string"
-msgstr "symbolen \"%s\" anv‰nds mer ‰n en gÂng som en bokstavlig str‰ng"
+msgid "useless %s for type <%s>"
+msgstr "oanv√§ndbar %s f√∂r typen <%s>"
 
-#: src/symtab.c:415
+#: src/symtab.c:465
 #, c-format
-msgid "symbol `%s' given more than one literal string"
-msgstr "symbolen \"%s\" har fÂtt mer ‰n en bokstavlig str‰ng"
+msgid "type <%s> is used, but is not associated to any symbol"
+msgstr "typen <%s> anv√§nds, men √§r inte associerad med n√•gon symbol"
 
-#: src/symtab.c:531
+#: src/symtab.c:490
+#, c-format
+msgid "symbol %s used more than once as a literal string"
+msgstr "symbolen %s anv√§nds mer √§n en g√•ng som en bokstavlig str√§ng"
+
+#: src/symtab.c:493
+#, c-format
+msgid "symbol %s given more than one literal string"
+msgstr "symbolen %s har f√•tt mer √§n en bokstavlig str√§ng"
+
+#: src/symtab.c:602
 #, c-format
 msgid "user token number %d redeclaration for %s"
-msgstr "anv‰ndarsymbol nummer %d omdeklarerad fˆr %s"
+msgstr "anv√§ndarsymbol nummer %d omdeklarerad f√∂r %s"
 
-#: src/symtab.c:533
+#: src/symtab.c:606
 #, c-format
 msgid "previous declaration for %s"
-msgstr "fˆregÂende deklaration fˆr %s"
+msgstr "f√∂reg√•ende deklaration f√∂r %s"
 
-#: src/symtab.c:909
+#: src/symtab.c:987
 #, c-format
 msgid "the start symbol %s is undefined"
-msgstr "startsymbolen %s ‰r odefinierad"
+msgstr "startsymbolen %s √§r odefinierad"
 
-#: src/symtab.c:913
+#: src/symtab.c:991
 #, c-format
 msgid "the start symbol %s is a token"
-msgstr "startsymbolen %s ‰r ett element"
+msgstr "startsymbolen %s √§r ett element"
 
-#: src/symtab.c:928
+#: src/symtab.c:1166
 #, c-format
-msgid "redeclaration for default tagged %%destructor"
-msgstr "omdeklaration av standard-%%destructor med tagg"
+msgid "useless precedence and associativity for %s"
+msgstr "oanv√§ndbar precedens och associativitet f√∂r %s"
 
-#: src/symtab.c:941
+#: src/symtab.c:1169
 #, c-format
-msgid "redeclaration for default tagless %%destructor"
-msgstr "omdeklaration av standard-%%destructor utan tagg"
+msgid "useless precedence for %s"
+msgstr "oanv√§ndbar precedens f√∂r %s"
 
-#: src/symtab.c:954
+#: src/symtab.c:1173
 #, c-format
-msgid "redeclaration for default tagged %%printer"
-msgstr "omdeklaration av standard-%%printer med tagg"
+msgid "useless associativity for %s, use %%precedence"
+msgstr "oanv√§ndbar associativitet f√∂r %s, anv√§nd %%precedence"
 
-#: src/symtab.c:967
+#: djgpp/subpipe.c:63 djgpp/subpipe.c:286 djgpp/subpipe.c:288
 #, c-format
-msgid "redeclaration for default tagless %%printer"
-msgstr "omdeklaration av standard-%%printer utan tagg"
+msgid "removing of '%s' failed"
+msgstr "att ta bort \"%s\" misslyckades"
+
+#: djgpp/subpipe.c:85 djgpp/subpipe.c:92
+#, c-format
+msgid "creation of a temporary file failed"
+msgstr "att skapa en tempor√§rfil misslyckades"
+
+#: djgpp/subpipe.c:127
+#, c-format
+msgid "saving stdin failed"
+msgstr "att spara standard in misslyckades"
+
+#: djgpp/subpipe.c:131
+#, c-format
+msgid "saving stdout failed"
+msgstr "att spara standard ut misslyckades"
+
+#: djgpp/subpipe.c:153 djgpp/subpipe.c:197 djgpp/subpipe.c:258
+#, c-format
+msgid "opening of tmpfile failed"
+msgstr "att √∂ppna en tempor√§rfil misslyckades"
+
+#: djgpp/subpipe.c:157
+#, c-format
+msgid "redirecting bison's stdout to the temporary file failed"
+msgstr "omdirigering av bisons standard ut till tempor√§rfilen misslyckades"
+
+#: djgpp/subpipe.c:201
+#, c-format
+msgid "redirecting m4's stdin from the temporary file failed"
+msgstr "omdirigering av m4:as standard in fr√•n tempor√§rfilen misslyckades"
+
+#: djgpp/subpipe.c:212
+#, c-format
+msgid "opening of a temporary file failed"
+msgstr "att √∂ppna en tempor√§rfil misslyckades"
+
+#: djgpp/subpipe.c:218
+#, c-format
+msgid "redirecting m4's stdout to a temporary file failed"
+msgstr "omdirigering av m4:as standard ut till en tempor√§rfil misslyckades"
+
+#: djgpp/subpipe.c:234
+#, c-format
+msgid "subsidiary program '%s' interrupted"
+msgstr "underprogrammet \"%s\" avbr√∂ts"
+
+#: djgpp/subpipe.c:241
+#, c-format
+msgid "subsidiary program '%s' not found"
+msgstr "underprogrammet \"%s\" finns inte"
+
+#: djgpp/subpipe.c:265
+#, c-format
+msgid "redirecting bison's stdin from the temporary file failed"
+msgstr "omdirigering av bisons standard in fr√•n tempor√§rfilen misslyckades"
 
 #: lib/argmatch.c:133
 #, c-format
@@ -896,34 +984,33 @@ msgid "ambiguous argument %s for %s"
 msgstr "tvetydigt argument %s till %s"
 
 #: lib/argmatch.c:153
-#, c-format
 msgid "Valid arguments are:"
-msgstr "Giltiga argument ‰r:"
+msgstr "Giltiga argument √§r:"
 
 #: lib/bitset_stats.c:177
 #, c-format
 msgid "%u bitset_allocs, %u freed (%.2f%%).\n"
-msgstr "%u bitm‰ngdallokeringar, %u frianden (%.2f%%).\n"
+msgstr "%u bitm√§ngdallokeringar, %u frianden (%.2f%%).\n"
 
 #: lib/bitset_stats.c:180
 #, c-format
 msgid "%u bitset_sets, %u cached (%.2f%%)\n"
-msgstr "%u bitm‰ngdm‰ngder, %u cachade (%.2f%%)\n"
+msgstr "%u bitm√§ngdm√§ngder, %u cachade (%.2f%%)\n"
 
 #: lib/bitset_stats.c:183
 #, c-format
 msgid "%u bitset_resets, %u cached (%.2f%%)\n"
-msgstr "%u bitm‰ngdÂterst‰llanden, %u cachade (%.2f%%)\n"
+msgstr "%u bitm√§ngd√•terst√§llanden, %u cachade (%.2f%%)\n"
 
 #: lib/bitset_stats.c:186
 #, c-format
 msgid "%u bitset_tests, %u cached (%.2f%%)\n"
-msgstr "%u bitm‰ngdtester, %u cachade (%.2f%%)\n"
+msgstr "%u bitm√§ngdtester, %u cachade (%.2f%%)\n"
 
 #: lib/bitset_stats.c:190
 #, c-format
 msgid "%u bitset_lists\n"
-msgstr "%u bitm‰ngdlistor\n"
+msgstr "%u bitm√§ngdlistor\n"
 
 #: lib/bitset_stats.c:192
 msgid "count log histogram\n"
@@ -943,133 +1030,139 @@ msgid ""
 "Bitset statistics:\n"
 "\n"
 msgstr ""
-"Bitm‰ngdsstatistik:\n"
+"Bitm√§ngdsstatistik:\n"
 "\n"
 
 #: lib/bitset_stats.c:215
 #, c-format
 msgid "Accumulated runs = %u\n"
-msgstr "Ackumulerade kˆrningar = %u\n"
+msgstr "Ackumulerade k√∂rningar = %u\n"
 
 #: lib/bitset_stats.c:259 lib/bitset_stats.c:264
-msgid "Could not read stats file."
-msgstr "Kunde inte l‰sa statistikfil."
+msgid "cannot read stats file"
+msgstr "kan inte l√§sa statistikfilen"
 
 #: lib/bitset_stats.c:261
 #, c-format
-msgid "Bad stats file size.\n"
-msgstr "DÂlig statistikfilstorlek.\n"
+msgid "bad stats file size\n"
+msgstr "d√•lig statistikfilstorlek\n"
 
 #: lib/bitset_stats.c:287 lib/bitset_stats.c:289
-msgid "Could not write stats file."
-msgstr "Kunde inte skriva statistikfil."
+msgid "cannot write stats file"
+msgstr "kan inte skriva statistikfilen"
 
 #: lib/bitset_stats.c:292
-msgid "Could not open stats file for writing."
-msgstr "Kunde inte ˆppna statistikfil fˆr skrivning."
+msgid "cannot open stats file for writing"
+msgstr "kan inte √∂ppna statistikfil f√∂r skrivning"
 
-#: lib/error.c:181
+#: lib/closeout.c:112
+msgid "write error"
+msgstr "skrivfel"
+
+#: lib/error.c:188
 msgid "Unknown system error"
-msgstr "Ok‰nt systemfel"
+msgstr "Ok√§nt systemfel"
 
-#: lib/getopt.c:527 lib/getopt.c:543
+#: lib/getopt.c:547 lib/getopt.c:576
 #, c-format
-msgid "%s: option '%s' is ambiguous\n"
-msgstr "%s: flaggan \"%s\" ‰r tvetydig\n"
+msgid "%s: option '%s' is ambiguous; possibilities:"
+msgstr "%s: flaggan \"%s\" √§r m√•ngtydig; m√∂jligheter:"
 
-#: lib/getopt.c:576 lib/getopt.c:580
+#: lib/getopt.c:624 lib/getopt.c:628
 #, c-format
 msgid "%s: option '--%s' doesn't allow an argument\n"
 msgstr "%s: flaggan \"--%s\" tar inget argument\n"
 
-#: lib/getopt.c:589 lib/getopt.c:594
+#: lib/getopt.c:637 lib/getopt.c:642
 #, c-format
 msgid "%s: option '%c%s' doesn't allow an argument\n"
 msgstr "%s: flaggan \"%c%s\" tar inget argument\n"
 
-#: lib/getopt.c:637 lib/getopt.c:656
+#: lib/getopt.c:685 lib/getopt.c:704
 #, c-format
 msgid "%s: option '--%s' requires an argument\n"
-msgstr "%s: flaggan \"--%s\" behˆver ett argument\n"
+msgstr "%s: flaggan \"--%s\" beh√∂ver ett argument\n"
 
-#: lib/getopt.c:694 lib/getopt.c:697
+#: lib/getopt.c:742 lib/getopt.c:745
 #, c-format
 msgid "%s: unrecognized option '--%s'\n"
-msgstr "%s: ok‰nd flagga \"--%s\"\n"
+msgstr "%s: ok√§nd flagga \"--%s\"\n"
 
-#: lib/getopt.c:705 lib/getopt.c:708
+#: lib/getopt.c:753 lib/getopt.c:756
 #, c-format
 msgid "%s: unrecognized option '%c%s'\n"
-msgstr "%s: ok‰nd flagga \"%c%s\"\n"
+msgstr "%s: ok√§nd flagga \"%c%s\"\n"
 
-#: lib/getopt.c:757 lib/getopt.c:760
+#: lib/getopt.c:805 lib/getopt.c:808
 #, c-format
 msgid "%s: invalid option -- '%c'\n"
 msgstr "%s: ogiltig flagga --\"%c\"\n"
 
-#: lib/getopt.c:810 lib/getopt.c:827 lib/getopt.c:1035 lib/getopt.c:1053
+#: lib/getopt.c:861 lib/getopt.c:878 lib/getopt.c:1088 lib/getopt.c:1106
 #, c-format
 msgid "%s: option requires an argument -- '%c'\n"
-msgstr "%s: flaggan behˆver ett argument -- \"%c\"\n"
+msgstr "%s: flaggan beh√∂ver ett argument -- \"%c\"\n"
 
-#: lib/getopt.c:883 lib/getopt.c:899
+#: lib/getopt.c:934 lib/getopt.c:950
 #, c-format
 msgid "%s: option '-W %s' is ambiguous\n"
-msgstr "%s: flaggan \"-W %s\" ‰r tvetydig\n"
+msgstr "%s: flaggan \"-W %s\" √§r tvetydig\n"
 
-#: lib/getopt.c:923 lib/getopt.c:941
+#: lib/getopt.c:974 lib/getopt.c:992
 #, c-format
 msgid "%s: option '-W %s' doesn't allow an argument\n"
 msgstr "%s: flaggan \"-W %s\" tar inget argument\n"
 
-#: lib/getopt.c:962 lib/getopt.c:980
+#: lib/getopt.c:1013 lib/getopt.c:1031
 #, c-format
 msgid "%s: option '-W %s' requires an argument\n"
-msgstr "%s: flaggan \"-W %s\" behˆver ett argument\n"
+msgstr "%s: flaggan \"-W %s\" beh√∂ver ett argument\n"
 
-#: lib/obstack.c:421 lib/obstack.c:423 lib/xalloc-die.c:34
+#: lib/obstack.c:413 lib/obstack.c:415 lib/xalloc-die.c:34
 msgid "memory exhausted"
 msgstr "minnet slut"
 
-#: lib/spawn-pipe.c:138 lib/spawn-pipe.c:141 lib/spawn-pipe.c:262
-#: lib/spawn-pipe.c:265
+#: lib/spawn-pipe.c:140 lib/spawn-pipe.c:143 lib/spawn-pipe.c:264
+#: lib/spawn-pipe.c:267
 #, c-format
 msgid "cannot create pipe"
-msgstr "kan inte skapa rˆr"
+msgstr "kan inte skapa r√∂r"
 
-#: lib/spawn-pipe.c:232 lib/spawn-pipe.c:346 lib/wait-process.c:282
+#: lib/spawn-pipe.c:234 lib/spawn-pipe.c:348 lib/wait-process.c:282
 #: lib/wait-process.c:356
 #, c-format
 msgid "%s subprocess failed"
 msgstr "%s-underprocess misslyckades"
 
-# N‰r vi gÂr ˆver till Unicode mer allm‰nt kanske vi bˆr ˆvers‰tta bÂda dessa
-# med U+201D (RIGHT DOUBLE QUOTATION MARK) pÂ svenska.  Eller?
+# N√§r vi g√•r √∂ver till Unicode mer allm√§nt kanske vi b√∂r √∂vers√§tta b√•da dessa
+# med U+201D (RIGHT DOUBLE QUOTATION MARK) p√• svenska.  Eller?
 #
 #. TRANSLATORS:
 #. Get translations for open and closing quotation marks.
-#.
 #. The message catalog should translate "`" to a left
 #. quotation mark suitable for the locale, and similarly for
-#. "'".  If the catalog has no translation,
-#. locale_quoting_style quotes `like this', and
-#. clocale_quoting_style quotes "like this".
+#. "'".  For example, a French Unicode local should translate
+#. these to U+00AB (LEFT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), and U+00BB (RIGHT-POINTING DOUBLE ANGLE
+#. QUOTATION MARK), respectively.
 #.
-#. For example, an American English Unicode locale should
-#. translate "`" to U+201C (LEFT DOUBLE QUOTATION MARK), and
-#. should translate "'" to U+201D (RIGHT DOUBLE QUOTATION
-#. MARK).  A British English Unicode locale should instead
-#. translate these to U+2018 (LEFT SINGLE QUOTATION MARK)
-#. and U+2019 (RIGHT SINGLE QUOTATION MARK), respectively.
+#. If the catalog has no translation, we will try to
+#. use Unicode U+2018 (LEFT SINGLE QUOTATION MARK) and
+#. Unicode U+2019 (RIGHT SINGLE QUOTATION MARK).  If the
+#. current locale is not Unicode, locale_quoting_style
+#. will quote 'like this', and clocale_quoting_style will
+#. quote "like this".  You should always include translations
+#. for "`" and "'" even if U+2018 and U+2019 are appropriate
+#. for your locale.
 #.
 #. If you don't know what to put here, please see
-#. <http://en.wikipedia.org/wiki/Quotation_mark#Glyphs>
+#. <http://en.wikipedia.org/wiki/Quotation_marks_in_other_languages>
 #. and use glyphs suitable for your language.
-#: lib/quotearg.c:271
+#: lib/quotearg.c:312
 msgid "`"
 msgstr "\""
 
-#: lib/quotearg.c:272
+#: lib/quotearg.c:313
 msgid "'"
 msgstr "\""
 
@@ -1090,15 +1183,15 @@ msgstr " TOTALT                :"
 msgid "time in %s: %ld.%06ld (%ld%%)\n"
 msgstr "tid i %s: %ld.%06ld (%ld%%)\n"
 
-#: lib/w32spawn.h:40
+#: lib/w32spawn.h:43
 #, c-format
 msgid "_open_osfhandle failed"
 msgstr "_open_osfhandle misslyckades"
 
-#: lib/w32spawn.h:81
+#: lib/w32spawn.h:84
 #, c-format
 msgid "cannot restore fd %d: dup2 failed"
-msgstr "det gÂr inte att Âterst‰lla fb %d: dup2 misslyckades"
+msgstr "det g√•r inte att √•terst√§lla fb %d: dup2 misslyckades"
 
 #: lib/wait-process.c:223 lib/wait-process.c:255 lib/wait-process.c:317
 #, c-format
@@ -1108,4 +1201,4 @@ msgstr "%s-underprocess"
 #: lib/wait-process.c:274 lib/wait-process.c:346
 #, c-format
 msgid "%s subprocess got fatal signal %d"
-msgstr "%s-underprocess fick en ˆdesdiger signal %d"
+msgstr "%s-underprocess fick en √∂desdiger signal %d"

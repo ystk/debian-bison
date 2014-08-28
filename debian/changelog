@@ -1,3 +1,44 @@
+bison (2:3.0.2.dfsg-2) unstable; urgency=low
+
+  * Fix parallel builds by inhibiting example code extraction in Makefiles
+    (Closes: #732034).
+
+ -- Chuan-kai Lin <cklin@debian.org>  Mon, 16 Dec 2013 21:49:59 -0800
+
+bison (2:3.0.2.dfsg-1) unstable; urgency=low
+
+  * New upstream version (Closes: #729745).
+  * Update Standards-Version to 3.9.5.0 (no change required).
+
+ -- Chuan-kai Lin <cklin@debian.org>  Mon, 09 Dec 2013 23:14:06 -0800
+
+bison (2:2.7.1.dfsg-1) unstable; urgency=low
+
+  * New upstream version (Closes: #694951, #701388).
+  * Update Standards-Version to 3.9.4.0 (no change required).
+  * Revise makeinfo inhibit in debian/rules.
+
+ -- Chuan-kai Lin <cklin@debian.org>  Thu, 16 May 2013 10:06:11 -0700
+
+bison (2:2.5.dfsg-3) unstable; urgency=low
+
+  * Bump epoch to downgrade unstable version from 2.6.2.dfsg-1 back to
+    2.5.dfsg-3.  Incompatibility in 2.6.2 introduces FTBFS in unstable,
+    and we are in a freeze, hence this temporary workaround.  This version
+    is identical to 1:2.5.dfsg-2.1 except this changelog file and the new
+    version number (Closes: #691928).
+
+ -- Chuan-kai Lin <cklin@debian.org>  Thu, 01 Nov 2012 11:04:49 -0700
+
+bison (1:2.6.2.dfsg-1) unstable; urgency=low
+
+  * New upstream version.
+  * Switch build system from CDBS to debhelper v9.
+  * Update Standards-Version to 3.9.3.0 (no change required).
+  * Add ChangeLog-1998 and ChangeLog-2012 to binary packages.
+
+ -- Chuan-kai Lin <cklin@debian.org>  Sun, 23 Sep 2012 23:01:25 -0700
+
 bison (1:2.5.dfsg-2.1) unstable; urgency=low
 
   * Non-maintainer upload.

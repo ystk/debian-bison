@@ -1,6 +1,6 @@
 /* Top level entry point of Bison.
 
-   Copyright (C) 1984, 1986, 1989, 1992, 1995, 2000-2002, 2004-2011 Free
+   Copyright (C) 1984, 1986, 1989, 1992, 1995, 2000-2002, 2004-2013 Free
    Software Foundation, Inc.
 
    This file is part of Bison, the GNU Compiler Compiler.
@@ -24,10 +24,12 @@
 #include <bitset_stats.h>
 #include <bitset.h>
 #include <configmake.h>
+#include <progname.h>
 #include <quotearg.h>
 #include <timevar.h>
 
 #include "LR0.h"
+#include "closeout.h"
 #include "complain.h"
 #include "conflicts.h"
 #include "derives.h"
@@ -42,6 +44,7 @@
 #include "print.h"
 #include "print_graph.h"
 #include "print-xml.h"
+#include <quote.h>
 #include "reader.h"
 #include "reduce.h"
 #include "scan-code.h"
@@ -52,18 +55,28 @@
 #include "uniqstr.h"
 
 
-
 int
 main (int argc, char *argv[])
 {
-  program_name = argv[0];
+  set_program_name (argv[0]);
   setlocale (LC_ALL, "");
   (void) bindtextdomain (PACKAGE, LOCALEDIR);
   (void) bindtextdomain ("bison-runtime", LOCALEDIR);
   (void) textdomain (PACKAGE);
 
+  {
+    char const *cp = getenv ("LC_CTYPE");
+    if (cp && STREQ (cp, "C"))
+      set_custom_quoting (&quote_quoting_options, "'", "'");
+    else
+      set_quoting_style (&quote_quoting_options, locale_quoting_style);
+  }
+
+  atexit (close_stdout);
+
   uniqstrs_new ();
   muscle_init ();
+  complain_init ();
 
   getargs (argc, argv);
 
@@ -82,7 +95,7 @@ main (int argc, char *argv[])
   reader ();
   timevar_pop (TV_READER);
 
-  if (complaint_issued)
+  if (complaint_status == status_complaint)
     goto finish;
 
   /* Find useless nonterminals and productions and reduce the grammar. */
@@ -113,7 +126,7 @@ main (int argc, char *argv[])
      declarations.  */
   timevar_push (TV_CONFLICTS);
   conflicts_solve ();
-  if (!muscle_percent_define_flag_if ("lr.keep-unreachable-states"))
+  if (!muscle_percent_define_flag_if ("lr.keep-unreachable-state"))
     {
       state_number *old_to_new = xnmalloc (nstates, sizeof *old_to_new);
       state_number nstates_old = nstates;
@@ -130,8 +143,9 @@ main (int argc, char *argv[])
   tables_generate ();
   timevar_pop (TV_ACTIONS);
 
-  grammar_rules_useless_report
-    (_("rule useless in parser due to conflicts"));
+  grammar_rules_useless_report (_("rule useless in parser due to conflicts"));
+
+  print_precedence_warnings ();
 
   /* Output file names. */
   compute_output_file_names ();
@@ -162,7 +176,7 @@ main (int argc, char *argv[])
 
   /* Stop if there were errors, to avoid trashing previous output
      files.  */
-  if (complaint_issued)
+  if (complaint_status == status_complaint)
     goto finish;
 
   /* Lookahead tokens are no longer needed. */
@@ -204,5 +218,7 @@ main (int argc, char *argv[])
   timevar_stop (TV_TOTAL);
   timevar_print (stderr);
 
-  return complaint_issued ? EXIT_FAILURE : EXIT_SUCCESS;
+  cleanup_caret ();
+
+  return complaint_status ? EXIT_FAILURE : EXIT_SUCCESS;
 }

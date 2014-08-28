@@ -1,6 +1,6 @@
 /* IELR main implementation.
 
-   Copyright (C) 2009-2011 Free Software Foundation, Inc.
+   Copyright (C) 2009-2013 Free Software Foundation, Inc.
 
    This file is part of Bison, the GNU Compiler Compiler.
 
@@ -758,8 +758,8 @@ ielr_compute_state (bitsetv follow_kernel_items, bitsetv always_follows,
                     if (!bitset_empty_p (lookaheads[i]))
                       break;
                   }
-                // bitset_equal_p uses the size of the first argument, so
-                // lookaheads[i] must be the second argument.
+                /* bitset_equal_p uses the size of the first argument,
+                   so lookaheads[i] must be the second argument.  */
                 else if (!bitset_equal_p ((*this_isocorep)->lookaheads[i],
                                           lookaheads[i]))
                   break;
@@ -1095,11 +1095,11 @@ ielr (void)
   /* Examine user options.  */
   {
     char *type = muscle_percent_define_get ("lr.type");
-    if (0 == strcmp (type, "lalr"))
+    if (STREQ (type, "lalr"))
       lr_type = LR_TYPE__LALR;
-    else if (0 == strcmp (type, "ielr"))
+    else if (STREQ (type, "ielr"))
       lr_type = LR_TYPE__IELR;
-    else if (0 == strcmp (type, "canonical-lr"))
+    else if (STREQ (type, "canonical-lr"))
       lr_type = LR_TYPE__CANONICAL_LR;
     else
       aver (false);
@@ -1187,8 +1187,8 @@ ielr (void)
   free (to_state);
   if (lr_type == LR_TYPE__CANONICAL_LR)
     {
-      // Reduction lookaheads are computed in ielr_split_states above but are
-      // timed as part of phase 4.
+      /* Reduction lookaheads are computed in ielr_split_states above
+         but are timed as part of phase 4. */
       set_goto_map ();
     }
   else
