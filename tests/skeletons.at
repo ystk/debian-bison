@@ -1,6 +1,6 @@
 # Checking skeleton support.                     -*- Autotest -*-
 
-# Copyright (C) 2007, 2009-2011 Free Software Foundation, Inc.
+# Copyright (C) 2007, 2009-2013 Free Software Foundation, Inc.
 
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -83,10 +83,11 @@ AT_CLEANUP
 
 AT_SETUP([[Installed skeleton file names]])
 
+AT_BISON_OPTION_PUSHDEFS
 m4_pushdef([AT_GRAM],
 [[%{
   #include <stdio.h>
-  void yyerror (char const *msg);
+  ]AT_YYERROR_DECLARE[
   int yylex (void);
 %}
 
@@ -99,29 +100,19 @@ start: ;
 
 %%
 
-void
-yyerror (char const *msg)
-{
-  fprintf (stderr, "%s\n", msg);
-}
-
+]AT_YYERROR_DEFINE[
 int
 yylex (void)
 {
   return 'a';
 }
-
-int
-main (void)
-{
-  return yyparse ();
-}
+]AT_MAIN_DEFINE[
 ]])
 
-AT_DATA([[input-cmd-line.y]],
+AT_DATA_GRAMMAR([[input-cmd-line.y]],
 [AT_GRAM])
 
-AT_DATA([[input-gram.y]],
+AT_DATA_GRAMMAR([[input-gram.y]],
 [[%skeleton "yacc.c"]
 AT_GRAM])
 
@@ -139,6 +130,7 @@ AT_PARSER_CHECK([[./input-gram]], [[1]], [],
 
 m4_popdef([AT_GRAM])
 
+AT_BISON_OPTION_POPDEFS
 AT_CLEANUP
 
 
@@ -160,7 +152,7 @@ start: ;
 ]])
 
 AT_BISON_CHECK([[input.y]], [[1]], [[]],
-[[<skeleton default value>: invalid value for %define Boolean variable `foo'
+[[<skeleton default value>: error: invalid value for %define Boolean variable 'foo'
 ]])
 
 AT_CLEANUP
@@ -194,10 +186,10 @@ start: ;
 ]])
 
 AT_BISON_CHECK([[input1.y]], [[1]], [[]],
-[[input1.y: warning: foow fubar
-foow.y:2.3-5.3: warning: foowat fubar
-input1.y: fooc fubar
-fooc.y:1.1-10.5: foocat fubar
+[[input1.y: warning: foow fubar [-Wother]
+foow.y:2.3-5.3: warning: foowat fubar [-Wother]
+input1.y: error: fooc fubar
+fooc.y:1.1-10.5: error: foocat fubar
 input1.y: fatal error: foof fubar
 ]])
 
@@ -228,7 +220,7 @@ start: ;
 ]])
 
 AT_BISON_CHECK([[input3.y]], [[1]], [[]],
-[[input3.y: fatal error: undefined %define variable `bogus' passed to b4_percent_define_get_loc
+[[input3.y: fatal error: b4_percent_define_get_loc: undefined %define variable 'bogus'
 ]])
 
 AT_DATA([[skel4.c]],
@@ -242,7 +234,7 @@ start: ;
 ]])
 
 AT_BISON_CHECK([[input4.y]], [[1]], [[]],
-[[input4.y: fatal error: undefined %define variable `bogus' passed to b4_percent_define_get_syncline
+[[input4.y: fatal error: b4_percent_define_get_syncline: undefined %define variable 'bogus'
 ]])
 
 AT_CLEANUP
@@ -267,7 +259,7 @@ start: ;
 ]])
 
 AT_BISON_CHECK([[input1.y]], [[1]], [[]],
-[[input1.y: non-fatal error
+[[input1.y: error: non-fatal error
 input1.y: fatal error: M4 should exit immediately here
 ]])
 
@@ -284,7 +276,7 @@ start: ;
 ]])
 
 AT_BISON_CHECK([[input2.y]], [[1]], [[]],
-[[input2.y: warning: morning
+[[input2.y: warning: morning [-Wother]
 foo.y:1.5-6: fatal error: M4 should exit immediately here
 ]])
 
@@ -318,7 +310,7 @@ print '@output(@,@)', "\n";
 (print "garbage"x10, "\n") for (1..1000);
 print "${M4}_divert_pop(0)\n";
 ]])
-AT_CHECK([[perl gen-skel.pl > skel.c || exit 77]])
+AT_CHECK([[$PERL gen-skel.pl > skel.c || exit 77]])
 
 AT_DATA([[input.y]],
 [[%skeleton "./skel.c"

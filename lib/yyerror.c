@@ -1,6 +1,6 @@
 /* Yacc library error-printing function.
 
-   Copyright (C) 2002, 2009-2011 Free Software Foundation, Inc.
+   Copyright (C) 2002, 2009-2013 Free Software Foundation, Inc.
 
    This file is part of Bison, the GNU Compiler Compiler.
 
@@ -17,6 +17,8 @@
    You should have received a copy of the GNU General Public License
    along with this program.  If not, see <http://www.gnu.org/licenses/>.  */
 
+#include <config.h>
+
 #include <stdio.h>
 
 int yyerror (char const *);
@@ -24,5 +26,7 @@ int yyerror (char const *);
 int
 yyerror (char const *message)
 {
-  return fprintf (stderr, "%s\n", message);
+  fputs (message, stderr);
+  fputc ('\n', stderr);
+  return 0;
 }
